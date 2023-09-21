@@ -10,8 +10,8 @@ const Logo = () => {
                 </svg>
 
             </div>
-            <h4 className='logo_text'>Booking</h4>
-            <div className='logo_text'>
+            <h4 className='logo-text'>Booking</h4>
+            <div className='logo-text'>
                 <Arrow
                     className={'city_arrow'}
                     width={10}

@@ -33,8 +33,8 @@ const Slider = ({concertImages, concertPerformers,concertNames, city, concertDat
                 <div className={'date-info'}>
                     <h3>{concertDates}</h3>
                 </div>
-                <div className={'buy-ticket-block'}>
-                    <button className={'buy-ticket-button'}>BUY TICKETS</button>
+                <div className={'buy-ticket-slider-block'}>
+                    <button className={'buy-ticket-slider-button'}>BUY TICKETS</button>
                 </div>
                 <div>
                     <Arrow

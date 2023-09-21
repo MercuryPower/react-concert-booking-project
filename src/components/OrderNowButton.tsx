@@ -3,8 +3,8 @@ import {HandySvg} from "handy-svg";
 
 const OrderNowButton = () => {
     return (
-        <div className='buy_ticket_now_container'>
-            <div className={'buy_ticket_now_button'}>
+        <div className='order-now-ticket-container'>
+            <div className={'order-now-ticket-button'}>
                 <HandySvg
                     src={'/ticketsNow.svg'}
                     width={59}

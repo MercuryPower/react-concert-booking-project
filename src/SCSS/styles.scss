@@ -1,5 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@mixin font($fontWeight, $fontSize){
+    font-size:$fontSize;
+    font-style: normal;
+    font-weight: $fontWeight;
+    line-height: normal;
+}
+
 /*  Logo  */
-.logo_text{
+.logo-text{
     margin-left:0.44rem;
 }
 /* !Logo */
@@ -11,58 +20,60 @@
 }
 
 
-.current_city{
+.current-city{
     margin-left:0.25rem;
     cursor: pointer;
 }
 
-
-
-.buy_ticket_now_container {
+.order-now-ticket-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 2;
+    h4{
+        @include font(700, 1.125rem);
+        color: #000;
+        margin-left:0.25rem;
+    }
+    svg{
+        cursor: pointer;
+    }
 }
-.bell_icon{
+.buy-ticket-slider-button{
+    cursor: pointer;
+}
+.bell-icon{
     margin-left:0.44rem;
     width: 32px;
     height: 32px;
 }
-.buy_ticket_now_button{
-    cursor: pointer;
-}
-.buy_ticket_now_container h4{
-    color: #000;
-    font-size:18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-left:0.25rem;
-}
+
 .image-container {
     position: relative;
     width: 200px;
     height: 200px;
     overflow: hidden;
 }
-.user_information{
+.user-information{
     display: flex;
     align-items: center;
 }
-.user_information_text, .user_information_bell{
+.user-information-text{
     margin-right:0.44rem;
     cursor: pointer;
 }
-.user_information_bell{
+.user-information-bell{
+    @extend .user-information-text;
+}
+.user-information-bell{
 
 }
-.user_information_bell::after{
+.user-information-bell::after{
 
 }
 
 .slider-section{
-    background-image: url('../../assets/poster1.png');
+    background-image: url('../assets/poster1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -77,6 +88,10 @@
     cursor: pointer;
     transform: scaleX(-1) scaleY(-1);
     z-index: 2;
+    &:hover{
+        opacity: 1;
+        transition: opacity ease-out 400ms;
+    }
 }
 .slider-arrow-prev *, .slider-arrow-next *{
     fill: #FFF;
@@ -88,10 +103,10 @@
     opacity: 0.5;
     cursor: pointer;
     z-index: 2;
-}
-.slider-arrow-next:hover,.slider-arrow-prev:hover{
-    opacity: 1;
-    transition: opacity ease-out 400ms;
+    &:hover{
+        opacity: 1;
+        transition: opacity ease-out 400ms;
+    }
 }
 header {
     position: sticky;
@@ -106,10 +121,7 @@ header {
     align-items: center;
 }
 .concert-performer-block{
-    font-size: 5rem;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
+    @include font(900, 5rem)
 }
 .concert-performer{
     text-align: center;
@@ -134,10 +146,7 @@ header {
 }
 .concert-name-block{
     color: #FFF;
-    font-size: 8rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    @include font(700, 8rem);
 }
 .concert-double-name{
     opacity: 0.3;
@@ -157,14 +166,15 @@ header {
     bottom: 0;
     left: 0;
     z-index: 1;
+    h2 {
+        font-size: 4rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        color: #fff;
+    }
 }
-.city-info h2{
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    color: #fff;
-}
+
 .date-info{
     text-align: center;
     width: 100%;
@@ -175,15 +185,13 @@ header {
     bottom: 0;
     left: 0;
     z-index: 1;
+    h3 {
+        color: #FFF;
+        @include font(700,2rem);
+    }
 }
-.date-info h3{
-    color: #FFF;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-.buy-ticket-block{
+
+.buy-ticket-slider-block{
     text-align: center;
     width: 100%;
     position: absolute;
@@ -193,7 +201,7 @@ header {
     z-index: 1;
 
 }
-.buy-ticket-button{
+.buy-ticket-slider-button{
     width: 37.5rem;
     height: 5.14581rem;
     cursor: pointer;
@@ -205,52 +213,78 @@ header {
     z-index: 2;
     text-shadow: -1px -1px 0 #000,
     -2px -2px 1px #000;
-    animation: textShadowAnimation 2s infinite;
+    animation: textShadowAnimation 4s infinite;
+    &:hover{
+        background: #fff;
+        color:#000;
+        transition: color ease-out 600ms;
+        animation: 0;
+    }
 }
 @keyframes textShadowAnimation {
     0% {
-        text-shadow: 0 30px 0 rgba(0, 0, 0, 0.5);
+        text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+    }
+    25% {
+        text-shadow: 5px 0 20px rgba(255, 255, 255, 1);
     }
     50% {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        text-shadow: -5px 0 20px rgba(255, 255, 255, 1);
+    }
+    75% {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 1);
     }
     100% {
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 0 30px rgba(255, 255, 255, 1);
     }
 }
-.buy-ticket-button:hover{
-    background: #fff;
-    color:#000;
-    transition: color ease-out 600ms;
-    animation: 0;
-}
-.tickets_place_block{
+.tickets-place-block{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top:10rem;
+    h1{
+        @include font(700, 8rem);
+        margin:0;
+    }
+    h2{
+        @include font(900, 4rem);
+        margin:0;
+    }
 }
-.tickets_place_block h1{
-    font-size: 8rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.tickets-title-block{
+    margin-top:4.75rem;
 }
-.tickets_place_block h2{
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: normal;
+.tickets-buy-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5625rem;
+    border: 1px solid #000;
+    background: #FFF;
+    width: 30rem;
+    height: 10rem;
 }
-.choose_performer_button{
+.city-club-year-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.choose-performer-button{
     display: flex;
     cursor: pointer;
     align-items: center;
+    justify-content: center;
     flex-direction: row;
-}
-.choose_performer_button svg{
-    transform: rotate(90deg);
-    margin-left:2rem;
+    margin-top:3rem;
+    svg{
+        transform: rotate(90deg);
+        margin-top:1.38rem;
+        margin-left: 1.38rem;
+    }
 }
 
 
@@ -260,8 +294,6 @@ header {
 /*    background-image: url('начальное-изображение.jpg');*/
 /*    transition: background-image 0.5s ease; !* Добавляем плавное переходное свойство *!*/
 /*}*/
-
-/*!* Применяем анимацию при наведении курсора *!*/
 /*.image-container:hover .animated-image {*/
 /*    background-image: url('конечное-изображение.jpg');*/
 /*}*/

@@ -5,7 +5,7 @@ interface CurrentCityProps{
 }
 const CurrentCity = ({city} : CurrentCityProps) => {
     return (
-        <div className={'current_city'}>
+        <div className={'current-city'}>
             {city}
         </div>
     );
