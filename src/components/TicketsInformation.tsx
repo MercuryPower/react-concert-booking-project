@@ -1,17 +1,22 @@
 import React from 'react';
 import {ReactComponent as Arrow} from "../assets/arrow1.svg";
 import Ticket from "./Ticket";
+import {concertDates} from "../consts";
+
 
 export interface TicketsInformationProps{
-    concertPerformers:string[];
+    concertPerformer:string[];
     currentCity:string;
     concertPlace:string[];
+    concertName:string[];
+    concertTime:string[];
+    concertDate:string[];
 }
-const TicketsInformation = ({concertPerformers,currentCity, concertPlace}:TicketsInformationProps) => {
+const TicketsInformation = ({...props}:TicketsInformationProps) => {
     return (
         <section className={'tickets-place-block'}>
             <div className={'choose-performer-button'}>
-                <h1>{concertPerformers}</h1>
+                <h1>{props.concertPerformer}</h1>
                 <Arrow
                     className={''}
                     width={70}
@@ -21,7 +26,34 @@ const TicketsInformation = ({concertPerformers,currentCity, concertPlace}:Ticket
             <div className={'tickets-title-block'}>
                 <h2>Билеты</h2>
             </div>
-            <Ticket currentCity={currentCity}  concertPerformers={concertPerformers} concertPlace={concertPlace}/>
+            <div className={'tickets-list-block'}>
+                <Ticket
+                    currentCity={props.currentCity}
+                    concertPerformer={props.concertPerformer}
+                    concertPlace={props.concertPlace}
+                    concertName={props.concertName}
+                    concertTime={props.concertTime}
+                    concertDate={props.concertDate}
+                />
+                <Ticket
+                    currentCity={props.currentCity}
+                    concertPerformer={props.concertPerformer}
+                    concertPlace={props.concertPlace}
+                    concertName={props.concertName}
+                    concertTime={props.concertTime}
+                    concertDate={props.concertDate}
+                />
+                <Ticket
+                    currentCity={props.currentCity}
+                    concertPerformer={props.concertPerformer}
+                    concertPlace={props.concertPlace}
+                    concertName={props.concertName}
+                    concertTime={props.concertTime}
+                    concertDate={props.concertDate}
+                />
+
+            </div>
+
         </section>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TicketsList = () => {
+const TicketList = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const TicketsList = () => {
     );
 };
 
-export default TicketsList;
+export default TicketList;

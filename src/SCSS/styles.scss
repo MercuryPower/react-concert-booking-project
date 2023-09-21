@@ -121,7 +121,7 @@ header {
     align-items: center;
 }
 .concert-performer-block{
-    @include font(900, 5rem)
+    @include font(900, 8vmin)
 }
 .concert-performer{
     text-align: center;
@@ -146,7 +146,7 @@ header {
 }
 .concert-name-block{
     color: #FFF;
-    @include font(700, 8rem);
+    @include font(700, 9vmin);
 }
 .concert-double-name{
     opacity: 0.3;
@@ -156,6 +156,63 @@ header {
     opacity: 0.3;
     margin-left: -1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5)
+}
+.concertTime-tickets-block{
+    background: #000;
+    color:#fff;
+}
+.date-circle {
+    width: 7vh;
+    height: 7vh;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2vh;
+}
+.currentYear-tickets-block{
+    @include font(800, 2vh);
+}
+.concertCity-tickets-block{
+    @include font(300, 2vh);
+}
+.concertPlace-tickets-block{
+    @include font(800, 2vh);
+    white-space: nowrap;
+}
+.concertPerformer-tickets-block{
+    @include font(800, 2vh);
+    white-space: nowrap;
+}
+.concertName-tickets-block{
+    @include font(800, 2vh);
+    white-space: nowrap;
+}
+.concertTime-tickets-block{
+    @include font(800, 2vh);
+}
+.concertDate-tickets-block{
+    @include font(800, 2vh);
+}
+.buy-ticket-button{
+    width: 9vh;
+    height: 9vh;
+    border: 1px solid #000 ;
+    display: flex;
+    font-size: 2vh;
+    font-weight: 600;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    &:hover{
+        color:#fff;
+        background-color: #000;
+        transition: color ease-out 600ms;
+        animation: textShadowAnimation 4s infinite;
+    }
 }
 .city-info{
     text-align: center;
@@ -167,10 +224,7 @@ header {
     left: 0;
     z-index: 1;
     h2 {
-        font-size: 4rem;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
+        @include font(300, 4rem);
         color: #fff;
     }
 }
@@ -260,16 +314,27 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:0.5rem;
+    gap:0.5rem;
     border-radius: 1.5625rem;
     border: 1px solid #000;
     background: #FFF;
-    width: 30rem;
-    height: 10rem;
+    height: 15vh;
 }
-.city-club-year-info{
+.tickets-list-block{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-top:5rem;
+}
+.ticket-info-column{
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
+    gap:0.5rem;
     justify-content: center;
 }
 
