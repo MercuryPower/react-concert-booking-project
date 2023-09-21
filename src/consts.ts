@@ -22,3 +22,6 @@ export const concertDates = [
 export const concertTimes = [
     '21:00'
 ]
+export const concertCities = [
+    'Moscow'
+]

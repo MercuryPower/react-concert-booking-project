@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ReactComponent as Arrow} from "../assets/arrow1.svg";
+import {ReactComponent as Arrow} from "../SCSS/arrow1.svg";
 
 export interface SliderProps{
     concertPerformers:string[];

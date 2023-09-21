@@ -150,11 +150,11 @@ header {
 }
 .concert-double-name{
     opacity: 0.3;
-    margin-top: -2rem;
+    margin-top: -3vh;
 }
 .concert-double-name2{
     opacity: 0.3;
-    margin-left: -1rem;
+    margin-left: -1vh;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5)
 }
 .concertTime-tickets-block{
@@ -187,11 +187,11 @@ header {
     white-space: nowrap;
 }
 .concertName-tickets-block{
-    @include font(800, 2vh);
+    @include font(800, 3vh);
     white-space: nowrap;
 }
 .concertTime-tickets-block{
-    @include font(800, 2vh);
+    @include font(800, 3vh);
 }
 .concertDate-tickets-block{
     @include font(800, 2vh);
@@ -218,14 +218,15 @@ header {
     text-align: center;
     width: 100%;
     position: absolute;
-    top:55%;
+    bottom:35%;
     right: 0;
-    bottom: 0;
     left: 0;
     z-index: 1;
+
     h2 {
-        @include font(300, 4rem);
+        @include font(300, 4vh);
         color: #fff;
+        margin:0;
     }
 }
 
@@ -234,14 +235,15 @@ header {
     width: 100%;
     position: absolute;
     margin-top:10px;
-    top:65%;
+    bottom:30%;
     right: 0;
-    bottom: 0;
     left: 0;
+
     z-index: 1;
     h3 {
         color: #FFF;
-        @include font(700,2rem);
+        margin:0;
+        @include font(700,3vh);
     }
 }
 
@@ -256,8 +258,8 @@ header {
 
 }
 .buy-ticket-slider-button{
-    width: 37.5rem;
-    height: 5.14581rem;
+    width: 40vh;
+    height: 5rem;
     cursor: pointer;
     font-size: 2rem;
     background: #000;
@@ -349,6 +351,16 @@ header {
         transform: rotate(90deg);
         margin-top:1.38rem;
         margin-left: 1.38rem;
+        padding-right:1rem;
+    }
+    &:hover{
+        color:#fff;
+        background-color: #000;
+        transition: color ease-out 600ms;
+        svg{
+            fill:#fff;
+            transition: fill ease-out 600ms;
+        }
     }
 }
 

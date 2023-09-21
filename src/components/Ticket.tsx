@@ -1,10 +1,15 @@
 import React from 'react';
-import {TicketsInformationProps} from "./TicketsInformation";
 
-interface TicketProps extends TicketsInformationProps{
-
+export interface TicketProps{
+    id:number;
+    concertPerformer:string;
+    currentCity:string;
+    concertPlace:string;
+    concertName:string;
+    concertTime:string;
+    concertDate:string;
 }
-const Ticket = ({...props}:TicketProps) => {
+const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, concertTime, concertDate }:TicketProps) => {
     return (
         <div className={'tickets-buy-block'}>
             <div className={'tickets-buy-button'}>
@@ -12,28 +17,28 @@ const Ticket = ({...props}:TicketProps) => {
                     <div className={'currentYear-tickets-block'}>
                         {new Date().getFullYear()}
                     </div>
-                    <div className={'concertCity-tickets-block'}>
-                        {props.currentCity}
+                    <div  className={'concertCity-tickets-block'}>
+                        {currentCity}
                     </div>
                     <div className={'concertPlace-tickets-block'}>
-                        {props.concertPlace}
+                        {concertPlace}
                     </div>
                 </div>
                 <div className={'ticket-info-column'}>
                     <div className={'concertPerformer-tickets-block'}>
-                        {props.concertPerformer}
+                        {concertPerformer}
                     </div>
                     <div className={'concertName-tickets-block'}>
-                        {props.concertName}
+                        {concertName}
                     </div>
                     <div className={'concertTime-tickets-block'}>
-                        {props.concertTime}
+                        {concertTime}
                     </div>
                 </div>
                 <div className={'ticket-info-column'}>
                     <div className={'concertDate-tickets-block'}>
-                        <div className={'date-circle'}>
-                            {props.concertDate}
+                        <div className={'date-circle '}>
+                            {concertDate}
                         </div>
 
                     </div>
