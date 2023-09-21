@@ -1,0 +1,267 @@
+/*  Logo  */
+.logo_text{
+    margin-left:0.44rem;
+}
+/* !Logo */
+.header-container{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 8rem 0 8rem;
+}
+
+
+.current_city{
+    margin-left:0.25rem;
+    cursor: pointer;
+}
+
+
+
+.buy_ticket_now_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+.bell_icon{
+    margin-left:0.44rem;
+    width: 32px;
+    height: 32px;
+}
+.buy_ticket_now_button{
+    cursor: pointer;
+}
+.buy_ticket_now_container h4{
+    color: #000;
+    font-size:18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left:0.25rem;
+}
+.image-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.user_information{
+    display: flex;
+    align-items: center;
+}
+.user_information_text, .user_information_bell{
+    margin-right:0.44rem;
+    cursor: pointer;
+}
+.user_information_bell{
+
+}
+.user_information_bell::after{
+
+}
+
+.slider-section{
+    background-image: url('../../assets/poster1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    position: relative;
+}
+.slider-arrow-prev{
+    position: absolute;
+    left:0;
+    top:50%;
+    opacity: 0.75;
+    cursor: pointer;
+    transform: scaleX(-1) scaleY(-1);
+    z-index: 2;
+}
+.slider-arrow-prev *, .slider-arrow-next *{
+    fill: #FFF;
+}
+.slider-arrow-next{
+    position: absolute;
+    right:0;
+    top:50%;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 2;
+}
+.slider-arrow-next:hover,.slider-arrow-prev:hover{
+    opacity: 1;
+    transition: opacity ease-out 400ms;
+}
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+.section-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.concert-performer-block{
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.concert-performer{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    margin:0;
+    left: 0;
+    color: #fff;
+    z-index: 1;
+}
+.concert-name{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #fff;
+    z-index: 1;
+}
+.concert-name-block{
+    color: #FFF;
+    font-size: 8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.concert-double-name{
+    opacity: 0.3;
+    margin-top: -2rem;
+}
+.concert-double-name2{
+    opacity: 0.3;
+    margin-left: -1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5)
+}
+.city-info{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top:55%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.city-info h2{
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    color: #fff;
+}
+.date-info{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    margin-top:10px;
+    top:65%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.date-info h3{
+    color: #FFF;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.buy-ticket-block{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom:15%;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+}
+.buy-ticket-button{
+    width: 37.5rem;
+    height: 5.14581rem;
+    cursor: pointer;
+    font-size: 2rem;
+    background: #000;
+    border: none;
+    font-weight: 700;
+    color:#fff;
+    z-index: 2;
+    text-shadow: -1px -1px 0 #000,
+    -2px -2px 1px #000;
+    animation: textShadowAnimation 2s infinite;
+}
+@keyframes textShadowAnimation {
+    0% {
+        text-shadow: 0 30px 0 rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+}
+.buy-ticket-button:hover{
+    background: #fff;
+    color:#000;
+    transition: color ease-out 600ms;
+    animation: 0;
+}
+.tickets_place_block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:10rem;
+}
+.tickets_place_block h1{
+    font-size: 8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.tickets_place_block h2{
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: normal;
+}
+.choose_performer_button{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: row;
+}
+.choose_performer_button svg{
+    transform: rotate(90deg);
+    margin-left:2rem;
+}
+
+
+/*.animated-image {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-image: url('начальное-изображение.jpg');*/
+/*    transition: background-image 0.5s ease; !* Добавляем плавное переходное свойство *!*/
+/*}*/
+
+/*!* Применяем анимацию при наведении курсора *!*/
+/*.image-container:hover .animated-image {*/
+/*    background-image: url('конечное-изображение.jpg');*/
+/*}*/
