@@ -40,12 +40,12 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
                         <div className={'date-circle '}>
                             {concertDate}
                         </div>
-
+                        <div className={'ticket-info-column'}>
+                            <button className={'buy-ticket-button'}>Купить</button>
+                        </div>
                     </div>
                 </div>
-                <div className={'ticket-info-column'}>
-                    <button className={'buy-ticket-button'}>Купить</button>
-                </div>
+
             </div>
         </div>
     );

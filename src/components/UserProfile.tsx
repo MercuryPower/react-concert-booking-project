@@ -12,9 +12,7 @@ const UserProfile = (props: UserProfileProps) => {
                 {props.username ?` ${props.username} `: `User`}
             </h4>
             <div className={'user_information_button'}>
-                <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="29.5" cy="29.5" r="29.5" fill="#D9D9D9"/>
-                </svg>
+                <img style={{width:'59px', height:'59px'}} src={'/profilePictureDefault.png'} alt={'ProfilePicture'} />
             </div>
             <div className={'user-information-bell'}>
                 <HandySvg

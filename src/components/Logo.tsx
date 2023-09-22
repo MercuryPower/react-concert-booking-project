@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as Arrow} from "../SCSS/arrow1.svg";
+import {ReactComponent as Arrow} from "../assets/arrow1.svg";
 const Logo = () => {
     return (
         <>
