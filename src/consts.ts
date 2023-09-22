@@ -1,6 +1,8 @@
 import poster1 from "./assets/poster1.png";
 import poster2 from "./assets/poster2.png";
 import poster3 from "./assets/poster3.jpg";
+import poster4 from "./assets/poster4.jpg";
+
 
 export const concertPlaces = [
     'BASE CLUB',
@@ -12,6 +14,7 @@ export const concertImages = [
     poster1,
     poster2,
     poster3,
+    poster4,
 ];
 export const concertPerformers = [
     'Kai Angel & 9mice',
