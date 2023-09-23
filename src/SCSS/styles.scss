@@ -18,10 +18,12 @@
     box-sizing: border-box;
     justify-content: center;
     padding: 0 8vh 0 8vh;
+    z-index: 1;
 }
 .current-city{
     margin-left:0.25rem;
     cursor: pointer;
+
 }
 
 .order-now-ticket-container {
@@ -77,6 +79,7 @@
     background-position: center center;
     height: 110vh;
     position: relative;
+    z-index: 2;
 }
 .slider-arrow-prev{
     position: absolute;
@@ -320,10 +323,9 @@ header {
     flex-direction: column;
     margin-top:10rem;
     h1{
-        @include font(700, 12vh);
+        @include font(700, 11vh);
         margin:0;
         cursor: pointer;
-        white-space: nowrap;
     }
     h2{
         @include font(900, 4rem);
@@ -370,7 +372,7 @@ header {
     justify-content: center;
     flex-direction: column;
     margin-top:3rem;
-    width: 150vh;
+    width: 75%;
 
     &:hover{
         color:#fff;
@@ -390,20 +392,17 @@ header {
 .rotate-arrow-dropdown-active{
     transform: rotate(270deg);
     margin-left: 1.38rem;
-    padding-right:1rem;
-
-
 }
-.rotate-arrow-dropdown-inActive{
+.rotate-arrow-dropdown-inactive{
     transform: rotate(90deg);
-    margin-top:1.38rem;
     margin-left: 1.38rem;
-    padding-right:1rem;
 }
 .dropdown-menu-performers{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 2vh;
+    gap:1rem;
+    flex-wrap: wrap;
     margin:2rem;
     ul, li{
         list-style-type:none;
@@ -428,5 +427,43 @@ header {
 }
 .choose-performer-dropdown{
     display: flex;
+    text-align: center;
+    justify-content: center;
     align-items: center;
+}
+.modal-choose-concert-window{
+
+}
+.modal-windows-properties{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    display: none;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: 3;
+}
+.modal-windows-properties.show{
+    display: flex;
+
+    align-items: center;
+    opacity:1;
+
+}
+.modal-windows-content{
+    background-color: #fff;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5625rem;
+    height: 50vh;
+    width: 100vmin;
+    text-align: center;
 }

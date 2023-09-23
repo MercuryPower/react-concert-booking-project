@@ -20,7 +20,7 @@ export const concertPerformers = [
     'Kai Angel & 9mice',
     'ALBLAK 52 HUGO LOUD',
     'Big Baby Tape',
-    'LIL UZI VERT'
+    'LIL UZI VERT',
 ];
 export const concertNames = [
     'SECRET SHOW',

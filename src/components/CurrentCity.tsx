@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 interface CurrentCityProps{
-    city:string
+    cities:string[]
 }
-const CurrentCity = ({city} : CurrentCityProps) => {
+const CurrentCity = ({cities} : CurrentCityProps) => {
+
+    const [selectedCity, setSelectedCity] = useState(0)
+
     return (
         <div className={'current-city'}>
-            {city}
+            {cities[selectedCity]}
         </div>
     );
 };
