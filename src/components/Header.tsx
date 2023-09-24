@@ -5,14 +5,16 @@ import OrderNowButton from "./OrderNowButton";
 import UserProfile from "./UserProfile";
 
 interface HeaderProps {
-    city: string;
+    cities: string[];
 }
 const Header = ({...props}:HeaderProps) => {
     return (
         <header>
-            <div className='header-container'>
-                <Logo />
-                <CurrentCity city={props.city} />
+            <div className={'header-container'}>
+                <div style={{display:'flex', alignItems:'center', justifyContent:'flex-start' }}>
+                    <Logo />
+                    <CurrentCity cities={props.cities} />
+                </div>
                 <OrderNowButton />
                 <UserProfile />
             </div>

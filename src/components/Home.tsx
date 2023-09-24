@@ -87,7 +87,7 @@ const Home = () => {
 
     return (
         <>
-            <Header city={city} />
+            <Header cities={concertCities} />
             <Slider
                 concertDates={concertDates}
                 concertCities={concertCities}
@@ -102,9 +102,9 @@ const Home = () => {
                 <div className={'tickets-title-block'}>
                     <h2>Билеты</h2>
                 </div>
-                    <TicketList
-                        tickets={tickets}
-                    />
+                <TicketList
+                    tickets={tickets}
+                />
             </section>
         </>
     );

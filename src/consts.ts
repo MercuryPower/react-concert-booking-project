@@ -7,8 +7,8 @@ import poster4 from "./assets/poster4.jpg";
 export const concertPlaces = [
     'BASE CLUB',
     'MTC CITY HALL',
-    'BASE',
-    'HBF Arena'
+    'VK STADIUM',
+    'HBF ARENA'
 ]
 export const concertImages = [
     poster1,
@@ -20,7 +20,7 @@ export const concertPerformers = [
     'Kai Angel & 9mice',
     'ALBLAK 52 HUGO LOUD',
     'Big Baby Tape',
-    'LIL UZI VERT'
+    'LIL UZI VERT',
 ];
 export const concertNames = [
     'SECRET SHOW',
@@ -42,7 +42,13 @@ export const concertTimes = [
 ]
 export const concertCities = [
     'Moscow',
-    'Kazan',
+    'Saint-Petersburg',
     'Samara',
+    'Ufa',
+    'Kazan',
+    'Saratov',
+    'Tver',
+    'Rostov-on-Don',
+    'Vladivostok',
     'Los-Angeles'
 ]

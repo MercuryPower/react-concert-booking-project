@@ -1,0 +1,13 @@
+
+@mixin font($fontWeight:400, $fontSize, $fontColor:#000, $hoverColor:null){
+  font-size: $fontSize;
+  font-style: normal;
+  font-weight: $fontWeight;
+  line-height: normal;
+  color: $fontColor;
+}
+@mixin flex($justifyContent:stretch, $alignItems:normal){
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}

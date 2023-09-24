@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {ReactComponent as Arrow} from "../assets/arrow1.svg";
+import clsx from "clsx";
 
 interface DropDownPerformersProps{
     performers:string[]
@@ -21,7 +22,11 @@ const DropdownPerformers = ({performers}:DropDownPerformersProps) => {
             <div className={'choose-performer-dropdown'}>
                 <h1 onClick={toggleMenu}>{performers[selectedPerformer]}</h1>
                 <Arrow
-                    className={isMenuActive ? 'rotate-arrow-dropdown-active' : 'rotate-arrow-dropdown-inActive'}
+                    className={clsx(
+                        {
+                            'rotate-arrow-dropdown-active': isMenuActive,
+                            'rotate-arrow-dropdown-inactive': !isMenuActive
+                        })}
                     width={70}
                     height={70}
                 />
@@ -29,7 +34,7 @@ const DropdownPerformers = ({performers}:DropDownPerformersProps) => {
             {isMenuActive && (
                 <div className="dropdown-menu-performers">
                     {performers.map((performer, index) => (
-                        <ul>
+                        <ul key={performer}>
                             <li
                                 key={index}
                                 onClick={() => choosePerformer(index)}

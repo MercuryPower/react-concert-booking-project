@@ -1,13 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ModalWindow from "./ModalWindow";
 
 interface CurrentCityProps{
-    city:string
+    cities:string[]
 }
-const CurrentCity = ({city} : CurrentCityProps) => {
+const CurrentCity = ({cities} : CurrentCityProps) => {
+    const [show, setShow] = useState(false);
+
+
+    const [selectedCity, setSelectedCity] = useState(cities[0]);
+
+    const handleChooseCity = () => {
+        setShow(true);
+    }
+    const handleClose = () => {
+        setShow(false)
+    }
+
     return (
-        <div className={'current-city'}>
-            {city}
+        <div>
+            <div className={'current-city'} onClick={handleChooseCity}>
+                {selectedCity}
+            </div>
+            <ModalWindow show={show} onClose={handleClose}>
+                <h1>Choose current city:</h1>
+                <input></input>
+                <div className={'city-choose-block-container'}>
+                    {cities.map((city, index) =>(
+                        <div className={'city-choose-block'} onClick={() => {
+                            setSelectedCity(city)
+                            setShow(false);
+                        }}>
+                            <h2>{city}</h2>
+                        </div>
+                    ))}
+                </div>
+            </ModalWindow>
         </div>
+
     );
 };
 
