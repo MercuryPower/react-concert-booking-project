@@ -16,8 +16,8 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <div className={'tickets-buy-block'}>
-            <div className={'tickets-buy-button'}>
+        <>
+            <div className={'tickets-buy-block'}>
                 <div className={'ticket-info-column'}>
                     <div className={'currentYear-tickets-block'}>
                         {new Date().getFullYear()}
@@ -29,7 +29,7 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
                         {concertPlace}
                     </div>
                 </div>
-                <div className={'ticket-info-column'}>
+                <div className={'ticket-info-column center'}>
                     <div className={'concertPerformer-tickets-block'}>
                         {concertPerformer}
                     </div>
@@ -57,7 +57,7 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
             >
                 Content of the modal goes here.
             </ModalWindow>
-        </div>
+    </>
     );
 };
 

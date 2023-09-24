@@ -7,8 +7,8 @@ const OrderNowButton = () => {
             <div className={'order-now-ticket-button'}>
                 <HandySvg
                     src={'/ticketsNow.svg'}
-                    width={59}
-                    height={59}
+                    width={60}
+                    height={60}
                 />
             </div>
             <h4 style={{cursor:"pointer"}}>Order Now</h4>

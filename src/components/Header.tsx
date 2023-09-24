@@ -11,8 +11,10 @@ const Header = ({...props}:HeaderProps) => {
     return (
         <header>
             <div className={'header-container'}>
-                <Logo />
-                <CurrentCity cities={props.cities} />
+                <div style={{display:'flex', alignItems:'center', justifyContent:'flex-start' }}>
+                    <Logo />
+                    <CurrentCity cities={props.cities} />
+                </div>
                 <OrderNowButton />
                 <UserProfile />
             </div>
