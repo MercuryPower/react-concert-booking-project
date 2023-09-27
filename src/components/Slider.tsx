@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {ReactComponent as Arrow} from "../assets/arrow1.svg";
 import {concertCities} from "../consts";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
+import clsx from "clsx";
 
 export interface SliderProps{
     concertPerformers:string[];
@@ -13,34 +14,50 @@ export interface SliderProps{
 const Slider = ({concertImages, concertPerformers,concertNames, concertCities, concertDates}:SliderProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentName, setCurrentName] = useState(concertNames[0])
-
+    const [isSwitched, setIsSwitched] = useState(false);
+    const sliderRef = useRef(null);
 
 
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % concertImages.length)
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % concertImages.length);
+        setIsSwitched(true);
     }
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => prevIndex === 0 ? concertImages.length - 1 : prevIndex - 1)
     }
+    const updateSlider = (newIndex: number) => {
+        setCurrentIndex(newIndex);
+    };
 
-    // const autoSwitchSlides = () => {
-    //     const interval = setInterval(() =>{
-    //         nextSlide();
-    //     }, 6000)
-    //     return () => clearInterval(interval);
-    // }
-    // useEffect(() =>{
-    //     const stopAutoSwitch = autoSwitchSlides();
-    //
-    //
-    //     return () => {
-    //         stopAutoSwitch();
-    //     };
-    // },[])
+    const autoSwitchSlides = () => {
+        const interval = setInterval(() =>{
+            nextSlide();
+        }, 6000)
+        return () => clearInterval(interval);
+    }
+    useEffect(() =>{
+        const stopAutoSwitch = autoSwitchSlides();
 
 
+        return () => {
+            stopAutoSwitch();
+        };
+    },[autoSwitchSlides])
+
+    const backgroundImageStyle = {
+        backgroundImage: `url(${concertImages[currentIndex]})`,
+    };
     return (
-        <section className={'slider-section'} style={{backgroundImage: `url(${concertImages[currentIndex]})`}}>
+        <CSSTransition
+            in={isSwitched}
+            classNames="fade"
+            timeout={2000}
+            onEntered={() => setIsSwitched(false)}
+            nodeRef={sliderRef}
+        >
+        <section className={clsx('slider-section',
+            {'switched': isSwitched,
+            } )} style={backgroundImageStyle} ref={sliderRef}>
                 <div className={'section-container'}>
                         <div className={'concert-info'}>
                             <div className={'concert-performer-block'}>
@@ -77,6 +94,7 @@ const Slider = ({concertImages, concertPerformers,concertNames, concertCities, c
                         </div>
                     </div>
         </section>
+        </CSSTransition>
     );
 };
 

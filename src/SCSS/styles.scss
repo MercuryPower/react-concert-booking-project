@@ -1,6 +1,7 @@
 @use '_mixins' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+$border-radius:1.5625rem;
 
 /*  Logo  */
 .logo-text{
@@ -20,7 +21,8 @@
 
 .order-now-ticket-container {
     @include flex(center,center);
-    flex:2;
+    flex-grow: 2;
+    width: 100%;
     h4{
         @include font(700, 1.125rem, #000);
         margin-left:0.25rem;
@@ -45,7 +47,8 @@
     overflow: hidden;
 }
 .user-information{
-    @include flex(flex-end, center)
+    @include flex(flex-end, center);
+    flex: 0 0 33.3%;
 }
 .user-information-text{
     margin-right:0.44rem;
@@ -68,6 +71,14 @@
     height: 110vh;
     position: relative;
     z-index: 2;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 .slider-arrow-prev{
     position: absolute;
@@ -106,6 +117,9 @@ header {
     left: 0;
     width: 100%;
     z-index: 3;
+}
+.header-scrolled{
+    background-color: #fff;
 }
 .section-container{
     height: 100vh;
@@ -166,7 +180,7 @@ header {
     filter: blur(2px);
 }
 .concertTime-tickets-block{
-    background: #000;
+    background: transparent;
 }
 .date-circle {
     width: 7vh;
@@ -188,20 +202,21 @@ header {
 
 }
 .concertPerformer-tickets-block{
-    @include font(800, 2vh);
+    @include font(800, 3vh);
     max-width: 30vh;
     text-overflow: ellipsis;
     overflow: hidden;
 
 }
 .concertName-tickets-block{
-    @include font(800, 3vh);
+    @include font(800, 2vh);
     max-width: 30vh;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 .concertTime-tickets-block{
     @include font(800, 3vh, #fff);
+    background-color: #000;
 }
 .concertDate-tickets-block{
     @include font(800, 2vh);
@@ -308,7 +323,7 @@ header {
 .tickets-place-block{
     @include flex(center,center);
     flex-direction: column;
-    margin-top:10rem;
+    margin-top: 20vh;
 }
 .tickets-title-block{
     margin-top:4.75rem;
@@ -321,7 +336,7 @@ header {
     @include flex(space-between,center);
     padding:0.5rem;
     gap:0.5rem;
-    border-radius: 1.5625rem;
+    border-radius: $border-radius;
     border: 1px solid #000;
     background: #FFF;
     height: 15vh;
@@ -341,7 +356,7 @@ header {
     gap:0.5rem;
 }
 
-.choose-performer-button{
+.dropdown-menu{
     @include flex(center,center);
     flex-direction: column;
     margin-top:3rem;
@@ -352,6 +367,7 @@ header {
         cursor: pointer;
         text-overflow: ellipsis;
         overflow: hidden;
+        text-align: left;
     }
     &:hover {
         color: #fff;
@@ -381,7 +397,7 @@ header {
     transform: rotate(90deg);
     margin-left: 1.38rem;
 }
-.dropdown-menu-performers{
+.dropdown-menu-items{
     @include flex(center,null);
     font-size: 2vh;
     gap:1rem;
@@ -410,7 +426,7 @@ header {
         }
     }
 }
-.choose-performer-dropdown{
+.choose-item-dropdown{
     @include flex(center,center);
     text-align: center;
 }
@@ -479,5 +495,23 @@ header {
     margin: 1rem;
     max-height: 100%;
     width: 90%;
+    height: 100%;
     overflow-y: auto;
+}
+.input-city-search-properties{
+    border-radius: $border-radius;
+    width: 50%;
+    height: 2vh;
+    padding: 1vh;
+    @include font(400, 3vh);
+    flex: 2;
+}
+.input-city-search{
+    @include flex(center,center);
+    svg{
+        margin-right:5px;
+    }
+}
+.switched{
+    animation: fadeIn 2s ease-out;
 }

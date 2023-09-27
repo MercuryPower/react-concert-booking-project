@@ -11,7 +11,7 @@ const UserProfile = (props: UserProfileProps) => {
             <h4 className='user-information-text'>
                 {props.username ?` ${props.username} `: `Log in`}
             </h4>
-            <div className={'user_information_button'}>
+            <div className={'user-information-button'}>
                 <img style={{width:'59px', height:'59px'}} src={'/profilePictureDefault.png'} alt={'ProfilePicture'} />
             </div>
             <div className={'user-information-bell'}>
