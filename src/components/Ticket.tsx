@@ -30,11 +30,11 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
                     </div>
                 </div>
                 <div className={'ticket-info-column center'}>
-                    <div className={'concertPerformer-tickets-block'}>
-                        {concertPerformer}
-                    </div>
                     <div className={'concertName-tickets-block'}>
                         {concertName}
+                    </div>
+                    <div className={'concertPerformer-tickets-block'}>
+                        {concertPerformer}
                     </div>
                     <div className={'concertTime-tickets-block'}>
                         {concertTime}
@@ -43,7 +43,9 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
                 <div className={'ticket-info-column'}>
                     <div className={'concertDate-tickets-block'}>
                         <div className={'date-circle '}>
-                            {concertDate}
+                            {concertDate ?
+                                concertDate : `SOON`
+                            }
                         </div>
                         <div className={'ticket-info-column'}>
                             <button className={'buy-ticket-button'} onClick={handleShow}>Купить</button>

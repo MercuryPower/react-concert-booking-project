@@ -11,7 +11,7 @@ const Header = ({...props}:HeaderProps) => {
     return (
         <header>
             <div className={'header-container'}>
-                <div style={{display:'flex', alignItems:'center', justifyContent:'flex-start' }}>
+                <div style={{display:'flex', alignItems:'center', flex:'0 0 33.3%'}}>
                     <Logo />
                     <CurrentCity cities={props.cities} />
                 </div>

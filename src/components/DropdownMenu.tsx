@@ -2,25 +2,25 @@ import React, {useState} from 'react';
 import {ReactComponent as Arrow} from "../assets/arrow1.svg";
 import clsx from "clsx";
 
-interface DropDownPerformersProps{
-    performers:string[]
+interface DropdownProps{
+    list:string[];
 }
-const DropdownPerformers = ({performers}:DropDownPerformersProps) => {
+const DropdownMenu = ({list}:DropdownProps) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
-    const [selectedPerformer, setSelectedPerformer] = useState(0)
+    const [selectedItem, setSelectedItem] = useState(0)
 
     const toggleMenu = () => {
         setIsMenuActive(!isMenuActive)
     }
-    const choosePerformer = (index :number) => {
-        setSelectedPerformer(index);
+    const chooseItem = (index :number) => {
+        setSelectedItem(index);
     }
 
 
     return (
-        <div className={'choose-performer-button'}>
-            <div className={'choose-performer-dropdown'}>
-                <h1 onClick={toggleMenu}>{performers[selectedPerformer]}</h1>
+        <div className={'dropdown-menu'}>
+            <div className={'choose-item-dropdown'}>
+                <h1 onClick={toggleMenu}>{list[selectedItem]}</h1>
                 <Arrow
                     className={clsx(
                         {
@@ -32,15 +32,15 @@ const DropdownPerformers = ({performers}:DropDownPerformersProps) => {
                 />
             </div>
             {isMenuActive && (
-                <div className="dropdown-menu-performers">
-                    {performers.map((performer, index) => (
-                        <ul key={performer}>
+                <div className="dropdown-menu-items">
+                    {list.map((item, index) => (
+                        <ul key={item}>
                             <li
                                 key={index}
-                                onClick={() => choosePerformer(index)}
-                                className={selectedPerformer === index ? 'selected' : ''}
+                                onClick={() => chooseItem(index)}
+                                className={selectedItem === index ? 'selected' : ''}
                             >
-                                <h3>{performer}</h3>
+                                <h3>{item}</h3>
                             </li>
                         </ul>
                     ))}
@@ -51,4 +51,4 @@ const DropdownPerformers = ({performers}:DropDownPerformersProps) => {
     );
 };
 
-export default DropdownPerformers;
+export default DropdownMenu;

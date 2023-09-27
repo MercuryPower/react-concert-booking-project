@@ -1,20 +1,36 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import ModalWindow from "./ModalWindow";
+import {ReactComponent as MapPin} from "../assets/location-pin-icon.svg";
 
 interface CurrentCityProps{
-    cities:string[]
+    cities:string[];
+    onSearchQueryChange?:(newSearchQuery:string) => void;
 }
-const CurrentCity = ({cities} : CurrentCityProps) => {
+const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
     const [show, setShow] = useState(false);
-
+    const [searchQuery, setSearchQuery] = useState('');
 
     const [selectedCity, setSelectedCity] = useState(cities[0]);
+    const [filteredCities, setFilteredCities] = useState<string[]>(cities);
+    const sortedCities = useMemo(() => {
+        return [...cities].filter((city) => city.toLowerCase().includes(searchQuery.toLowerCase()))
+    }, [cities, searchQuery])
 
+
+    // const sortedCities = [...cities].sort((a,b) => a[sort].localeCompare(b[sort]))
     const handleChooseCity = () => {
         setShow(true);
     }
     const handleClose = () => {
         setShow(false)
+    }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value);
+
+        if (onSearchQueryChange) {
+            onSearchQueryChange(e.target.value);
+        }
     }
 
     return (
@@ -24,14 +40,28 @@ const CurrentCity = ({cities} : CurrentCityProps) => {
             </div>
             <ModalWindow show={show} onClose={handleClose}>
                 <h1>Choose current city:</h1>
-                <input></input>
+                <div className={'input-city-search'}>
+                    <MapPin
+                        width={30}
+                        height={30}
+                    />
+                    <input
+                        type={'text'}
+                        onChange={handleInputChange}
+                        value={searchQuery}
+                        placeholder={'Search...'}
+                        className={'input-city-search-properties'}
+                    >
+                    </input>
+                </div>
                 <div className={'city-choose-block-container'}>
-                    {cities.map((city, index) =>(
-                        <div className={'city-choose-block'} onClick={() => {
-                            setSelectedCity(city)
-                            setShow(false);
+                    {sortedCities.map((city, index) =>(
+                        <div key={index} className={'city-choose-block'}
+                             onClick={() => {
+                                setSelectedCity(city)
+                                setShow(false);
                         }}>
-                            <h2>{city}</h2>
+                            <h2 className={'glitch-text'}>{city}</h2>
                         </div>
                     ))}
                 </div>

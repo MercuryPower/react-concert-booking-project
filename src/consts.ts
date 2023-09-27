@@ -8,7 +8,10 @@ export const concertPlaces = [
     'BASE CLUB',
     'MTC CITY HALL',
     'VK STADIUM',
-    'HBF ARENA'
+    'HBF ARENA',
+    'VTB ARENA',
+    'MTC LIVE HALL',
+    'LUXURY VILLAGE',
 ]
 export const concertImages = [
     poster1,
@@ -21,24 +24,44 @@ export const concertPerformers = [
     'ALBLAK 52 HUGO LOUD',
     'Big Baby Tape',
     'LIL UZI VERT',
+    'LOVV66',
+    'SALUKI',
+    'Скриптонит',
+    '104',
+    'PHARAOH',
+    'ЛСП',
+    'Boulevard Depo',
+
 ];
 export const concertNames = [
     'SECRET SHOW',
     'FIRMA MUSIC FESTIVAL',
     'ATLANTA FEST',
-    'ROLLING LOUD'
+    'ROLLING LOUD',
+    ''
 ];
 export const concertDates = [
     '28.05',
     '29.05',
+    '15.06',
+    '18.06',
+    '03.07',
+    '10.07',
+    '21.08',
     '10.09',
-    '04.12'
+    '04.12',
+    '05.10',
 ];
 export const concertTimes = [
     '21:00',
     '22:00',
     '17:30',
-    '20:00'
+    '20:00',
+    '23:00',
+    '00:00',
+    '18:00',
+    '19:00',
+    '21:30',
 ]
 export const concertCities = [
     'Moscow',
@@ -50,5 +73,9 @@ export const concertCities = [
     'Tver',
     'Rostov-on-Don',
     'Vladivostok',
+    'Volgograd',
+    'Krasnodar',
+    'Naberezhnyye Chelny',
+    'Novosibirsk',
     'Los-Angeles'
 ]
