@@ -14,6 +14,7 @@ import {
 import {TicketProps} from "./Ticket";
 import TicketList from "./TicketList";
 import DropdownMenu from "./DropdownMenu";
+import ModalWindow from "./ModalWindow";
 
 const Home = () => {
 
@@ -28,6 +29,7 @@ const Home = () => {
             concertPlace: concertPlaces[i],
             concertTime: concertTimes[i],
             currentCity: concertCities[i],
+            concertImage: concertImages[i]
         });
     }
     const [tickets, setTickets] = useState<TicketProps[]>(ticketsData);
@@ -50,12 +52,10 @@ const Home = () => {
                 <div className={'tickets-title-block'}>
                     <h2>Билеты</h2>
                 </div>
-                <select>
-
-                </select>
                 <TicketList
                     tickets={tickets}
                 />
+
             </section>
         </>
     );

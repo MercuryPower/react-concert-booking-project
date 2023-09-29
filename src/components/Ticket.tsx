@@ -18,7 +18,7 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
     return (
         <>
             <div className={'tickets-buy-block'}>
-                <div className={'ticket-info-column'}>
+                <div className={'ticket-info-column first'}>
                     <div className={'currentYear-tickets-block'}>
                         {new Date().getFullYear()}
                     </div>
@@ -40,7 +40,7 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
                         {concertTime}
                     </div>
                 </div>
-                <div className={'ticket-info-column'}>
+                <div className={'ticket-info-column last'}>
                     <div className={'concertDate-tickets-block'}>
                         <div className={'date-circle '}>
                             {concertDate ?
