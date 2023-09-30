@@ -1,7 +1,8 @@
 @use '_mixins' as *;
+@use '_consts' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-$border-radius:1.5625rem;
+
 
 /*  Logo  */
 .logo-text{
@@ -17,6 +18,7 @@ $border-radius:1.5625rem;
 .current-city{
     margin-left:0.25rem;
     cursor: pointer;
+
 }
 
 .order-now-ticket-container {
@@ -72,9 +74,10 @@ $border-radius:1.5625rem;
     position: relative;
     z-index: 2;
 }
+
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        opacity: 0.5;
     }
     to {
         opacity: 1;
@@ -84,7 +87,7 @@ $border-radius:1.5625rem;
     position: absolute;
     left:0;
     top:50%;
-    opacity: 0.75;
+    opacity: 0.5;
     cursor: pointer;
     transform: scaleX(-1) scaleY(-1);
     z-index: 2;
@@ -116,7 +119,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 2;
+    transition: ease-out 200ms;
 }
 .header-scrolled{
     background-color: #fff;
@@ -126,7 +130,13 @@ header {
     @include flex(center,center)
 }
 .concert-performer-block{
-    @include font(900, 8vmin)
+    @include font(900, 8vmin);
+    text-shadow:
+            0 0 1px #000,
+            0 0 5px rgba(255, 255, 255, 0.25),
+            0 0 10px rgba(255, 255, 255, 0.25),
+            0 0 15px rgba(255, 255, 255, 0.25),
+            0 0 20px rgba(255, 255, 255, 0.25);
 }
 .concert-performer{
     text-align: center;
@@ -155,7 +165,13 @@ header {
 }
 .concert-name-block{
     @include font(700, 9vmin, #fff);
-}
+    text-shadow:
+            0 0 1px #000,
+            0 0 5px rgba(255, 255, 255, 0.1),
+            0 0 10px rgba(255, 255, 255, 0.1),
+            0 0 15px rgba(255, 255, 255, 0.1),
+            0 0 20px rgba(255, 255, 255, 0.1);
+    }
 .concert-double-name{
     opacity: 0.3;
     margin-top: -2vh;
@@ -196,9 +212,13 @@ header {
 }
 .concertCity-tickets-block{
     @include font(300, 2vh);
+
 }
 .concertPlace-tickets-block{
     @include font(800, 2vh);
+    max-width: 15vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
 }
 .concertPerformer-tickets-block{
@@ -232,6 +252,8 @@ header {
     border: 1px solid #000;
     cursor: pointer;
     border-radius: 50%;
+    background: transparent;
+
     &:hover{
         color:#fff;
         background-color: #000;
@@ -276,7 +298,7 @@ header {
     text-align: center;
     width: 100%;
     position: absolute;
-    bottom:15%;
+    bottom:17.5%;
     right: 0;
     left: 0;
     z-index: 1;
@@ -332,6 +354,9 @@ header {
         margin:0;
     }
 }
+.switched{
+    animation: fadeIn 2s ease-out;
+}
 .tickets-buy-block{
     @include flex(space-between,center);
     padding:0.5rem;
@@ -340,8 +365,14 @@ header {
     border: 1px solid #000;
     background: #FFF;
     height: 15vh;
-    width: 60vh;
+    width: 65vh;
     text-align: center;
+    .first,.last{
+        width:25%;
+    }
+    .center{
+        width:50%;
+    }
 }
 .tickets-list-block{
     @include flex(center,center);
@@ -354,6 +385,24 @@ header {
     flex-wrap: wrap;
     flex-direction: column;
     gap:0.5rem;
+
+}
+
+.fade-enter{
+    opacity: 0;
+}
+.fade-exit{
+    opacity: 1;
+}
+.fade-enter-active{
+    opacity: 1;
+}
+.fade-exit-active{
+    opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+    transition: opacity 500ms;
 }
 
 .dropdown-menu{
@@ -368,6 +417,7 @@ header {
         text-overflow: ellipsis;
         overflow: hidden;
         text-align: left;
+
     }
     &:hover {
         color: #fff;
@@ -453,7 +503,7 @@ header {
 .modal-window-content{
     @include flex(center,center);
     background-color: #fff;
-    border: 1px solid #000;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     flex-direction: column;
     gap:0.5rem;
     border-radius: 1.5625rem;
@@ -512,6 +562,9 @@ header {
         margin-right:5px;
     }
 }
-.switched{
-    animation: fadeIn 2s ease-out;
+.scrolled{
+    background-color:#fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    transition: ease-out 200ms;
 }
+

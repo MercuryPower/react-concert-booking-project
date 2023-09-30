@@ -1,7 +1,7 @@
-import poster1 from "./assets/poster1.png";
-import poster2 from "./assets/poster2.png";
-import poster3 from "./assets/poster3.jpg";
-import poster4 from "./assets/poster4.jpg";
+import poster1 from "./assets/posters/poster1.png";
+import poster2 from "./assets/posters/poster22.jpg";
+import poster3 from "./assets/posters/poster3.jpg";
+import poster4 from "./assets/posters/poster4.jpg";
 
 
 export const concertPlaces = [
@@ -21,7 +21,7 @@ export const concertImages = [
 ];
 export const concertPerformers = [
     'Kai Angel & 9mice',
-    'ALBLAK 52 HUGO LOUD',
+    'ALBLAK 52',
     'Big Baby Tape',
     'LIL UZI VERT',
     'LOVV66',
@@ -62,6 +62,8 @@ export const concertTimes = [
     '18:00',
     '19:00',
     '21:30',
+    '21:00',
+    '22:00'
 ]
 export const concertCities = [
     'Moscow',
