@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {forwardRef, Ref, useState} from 'react';
 import ModalWindow from "./ModalWindow";
+import {motion} from "framer-motion";
 
 export interface TicketProps{
     id:number;
@@ -10,14 +11,36 @@ export interface TicketProps{
     concertTime:string;
     concertDate:string;
 }
-const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, concertTime, concertDate }:TicketProps) => {
+const Ticket = forwardRef<HTMLDivElement, TicketProps>(({id, concertPerformer, currentCity, concertPlace, concertName, concertTime, concertDate }:TicketProps, ref) => {
     const [show, setShow] = useState(false);
 
+    const textAnimation = {
+        hidden:{
+            opacity:0,
+            x:100,
+        },
+        visible: (custom: number) => ({
+            opacity:1,
+            x:0,
+            transition: {delay: custom * 0.3}
+        })
+    }
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setShow(true);
+    }
     return (
         <>
-            <div className={'tickets-buy-block'}>
+            <motion.div
+                variants={textAnimation}
+                initial={'hidden'}
+                custom={1}
+                transition={{duration:0.5}}
+                viewport={{amount:0.1,once:true}}
+                whileInView={'visible'}
+                ref={ref}
+                className={'tickets-buy-block'}
+            >
                 <div className={'ticket-info-column first'}>
                     <div className={'currentYear-tickets-block'}>
                         {new Date().getFullYear()}
@@ -48,11 +71,13 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
                             }
                         </div>
                         <div className={'ticket-info-column'}>
-                            <button className={'buy-ticket-button'} onClick={handleShow}>Купить</button>
+                            <button className={'buy-ticket-button'} onClick={handleShow}>
+                                Купить
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
             <ModalWindow
                 show={show}
                 onClose={handleClose}
@@ -61,6 +86,9 @@ const Ticket = ({id, concertPerformer, currentCity, concertPlace, concertName, c
             </ModalWindow>
     </>
     );
-};
+});
+
 
 export default Ticket;
+
+export const MTicket = motion(Ticket);

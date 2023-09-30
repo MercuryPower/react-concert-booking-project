@@ -18,6 +18,7 @@
 .current-city{
     margin-left:0.25rem;
     cursor: pointer;
+
 }
 
 .order-now-ticket-container {
@@ -119,6 +120,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 2;
+    transition: ease-out 200ms;
 }
 .header-scrolled{
     background-color: #fff;
@@ -296,7 +298,7 @@ header {
     text-align: center;
     width: 100%;
     position: absolute;
-    bottom:15%;
+    bottom:17.5%;
     right: 0;
     left: 0;
     z-index: 1;
@@ -501,7 +503,7 @@ header {
 .modal-window-content{
     @include flex(center,center);
     background-color: #fff;
-    border: 1px solid #000;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     flex-direction: column;
     gap:0.5rem;
     border-radius: 1.5625rem;
@@ -559,5 +561,10 @@ header {
     svg{
         margin-right:5px;
     }
+}
+.scrolled{
+    background-color:#fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    transition: ease-out 200ms;
 }
 

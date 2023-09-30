@@ -5,6 +5,7 @@ import clsx from "clsx";
 import {ReactComponent as Cross} from "../assets/closeSign.svg";
 import {createPortal} from "react-dom";
 import {modalRootElement} from "../index";
+import { motion } from 'framer-motion';
 
 interface ModalProps {
     show: boolean;
@@ -31,10 +32,15 @@ const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, ca
     }, [show, element])
     if(show){
         return createPortal(
-            <div className={clsx('modal-window-properties',
-                {
-                    'show' : show,
-                })}>
+            <motion.div
+                initial={{ opacity: 0}}
+                animate={{ opacity: 1}}
+                transition={{ duration: 0.25 }}
+                className={clsx('modal-window-properties',
+                    {
+                        'show' : show,
+                    })}
+            >
                 <div className={'modal-window-content'}>
                     {children}
                     <button className={'modal-window-closeButton'} onClick={onClose}>
@@ -45,7 +51,7 @@ const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, ca
                         />
                     </button>
                 </div>
-            </div>,
+            </motion.div>,
             element)
     }
     return null;

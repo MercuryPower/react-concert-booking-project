@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../SCSS/styles.scss';
 import Slider from "./Slider";
 import Header from "./Header";
@@ -14,10 +14,23 @@ import {
 import {TicketProps} from "./Ticket";
 import TicketList from "./TicketList";
 import DropdownMenu from "./DropdownMenu";
-import ModalWindow from "./ModalWindow";
+import {useInView} from "react-intersection-observer";
+
 
 const Home = () => {
+    const [isScrolled, setIsScrolled] = useState(true);
 
+    const {ref, inView} = useInView({
+        threshold:0.5
+    })
+
+    useEffect(() => {
+        if(inView){
+            setIsScrolled(true);
+        } else{
+            setIsScrolled(false);
+        }
+    }, [inView])
     const ticketsData = [];
 
     for (let i = 0; i < concertPerformers.length; i++) {
@@ -37,7 +50,7 @@ const Home = () => {
 
     return (
         <>
-            <Header cities={concertCities} />
+            <Header isScrolled={isScrolled} cities={concertCities} />
             <Slider
                 concertDates={concertDates}
                 concertCities={concertCities}
@@ -45,7 +58,7 @@ const Home = () => {
                 concertPerformers={concertPerformers}
                 concertNames={concertNames}
             />
-            <section className={'tickets-place-block'}>
+            <section ref={ref} className={'tickets-place-block'}>
                 <DropdownMenu
                     list={concertPerformers}
                 />
