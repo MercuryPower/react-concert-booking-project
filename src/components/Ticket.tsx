@@ -17,11 +17,9 @@ const Ticket = forwardRef<HTMLDivElement, TicketProps>(({id, concertPerformer, c
     const textAnimation = {
         hidden:{
             opacity:0,
-            x:100,
         },
         visible: (custom: number) => ({
             opacity:1,
-            x:0,
             transition: {delay: custom * 0.3}
         })
     }
@@ -32,6 +30,7 @@ const Ticket = forwardRef<HTMLDivElement, TicketProps>(({id, concertPerformer, c
     return (
         <>
             <motion.div
+                key={id}
                 variants={textAnimation}
                 initial={'hidden'}
                 custom={1}
@@ -82,7 +81,12 @@ const Ticket = forwardRef<HTMLDivElement, TicketProps>(({id, concertPerformer, c
                 show={show}
                 onClose={handleClose}
             >
-                Content of the modal goes here.
+                <div>
+                    <h1 style={{margin:0}}>{concertPerformer}</h1>
+                    <h2 style={{margin:0}}>{concertDate}</h2>
+                    <h2 style={{margin:0}}>{concertTime}</h2>
+                </div>
+
             </ModalWindow>
     </>
     );
