@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import Arrow from "../assets/arrow1.svg";
+import {ReactComponent as Arrow} from "../assets/arrow1.svg";
 import clsx from "clsx";
 import {motion} from 'framer-motion'
 import {useInView} from "react-intersection-observer";
@@ -98,18 +98,18 @@ const Slider =({concertImages, concertPerformers,concertNames, concertCities, co
                             <motion.button custom={5} variants={textAnimation} className={'buy-ticket-slider-button'} onClick={handleShow}>BUY TICKETS</motion.button>
                         </div>
                         <motion.div custom={2} variants={textAnimation} onClick={prevSlide}>
-                            {/*<Arrow*/}
-                            {/*    // className={'slider-arrow-prev'}*/}
-                            {/*    // width={50}*/}
-                            {/*    // height={50}*/}
-                            {/*/>*/}
+                            <Arrow
+                                className={'slider-arrow-prev'}
+                                width={50}
+                                height={50}
+                            />
                         </motion.div>
                         <motion.div custom={2} variants={textAnimation} onClick={nextSlide}>
-                            {/*<Arrow*/}
-                            {/*    // className={'slider-arrow-next'}*/}
-                            {/*    // width={50}*/}
-                            {/*    // height={50}*/}
-                            {/*/>*/}
+                            <Arrow
+                                className={'slider-arrow-next'}
+                                width={50}
+                                height={50}
+                            />
                         </motion.div>
                     </div>
             </motion.section>

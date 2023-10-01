@@ -1,14 +1,14 @@
 import React from 'react';
-import OrderNowSVG from "../assets/ticketsNow.svg";
+import {ReactComponent as OrderNowSVG} from "../assets/TicketsNow.svg";
 
 const OrderNowButton = () => {
     return (
         <div className='order-now-ticket-container'>
             <div className={'order-now-ticket-button'}>
-                {/*<OrderNowSVG*/}
-                {/*    // width={60}*/}
-                {/*    // height={60}*/}
-                {/*/>*/}
+                <OrderNowSVG
+                    width={60}
+                    height={60}
+                />
             </div>
             <h4 style={{cursor:"pointer"}}>Order Now</h4>
         </div>

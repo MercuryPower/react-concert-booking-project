@@ -28,7 +28,9 @@ const Header = ({...props}:HeaderProps) => {
             transition={{duration:0.5}}
             viewport={{amount:0.1,once:true}}
             whileInView={'visible'}
-            className={clsx({'scrolled':props.isScrolled})}>
+            className={clsx({
+                'scrolled':props.isScrolled
+            })}>
             <div className={'header-container'}>
                 <div style={{display:'flex', alignItems:'center', flex:'0 0 33.3%'}}>
                     <Logo />

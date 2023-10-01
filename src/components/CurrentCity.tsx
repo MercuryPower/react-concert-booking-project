@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import ModalWindow from "./ModalWindow";
-// import {ReactComponent as MapPin} from "../assets/location-pin-icon.svg";
+import {ReactComponent as MapPin} from "../assets/location-pin-icon.svg";
 
 interface CurrentCityProps{
     cities:string[];
@@ -39,10 +39,10 @@ const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
             <ModalWindow  show={show} onClose={handleClose}>
                 <h1>Choose current city:</h1>
                 <div className={'input-city-search'}>
-                    {/*<MapPin*/}
-                    {/*    width={50}*/}
-                    {/*    height={50}*/}
-                    {/*/>*/}
+                    <MapPin
+                        width={50}
+                        height={50}
+                    />
                     <input
                         type={'text'}
                         onChange={handleInputChange}

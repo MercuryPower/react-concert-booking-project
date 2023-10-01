@@ -19,8 +19,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["vite-plugin-svgr/client","node"]
   },
   "include": [
-    "src"
+    "src",
+    "src/custom-svg.d.ts"
   ]
 }
