@@ -45,7 +45,6 @@ const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, ca
                     {children}
                     <button className={'modal-window-closeButton'} onClick={onClose}>
                         <Cross
-                            className={''}
                             width={25}
                             height={25}
                         />

@@ -1,12 +1,11 @@
 import React from 'react';
-import {HandySvg} from "handy-svg";
+import {ReactComponent as OrderNowSVG} from "../assets/TicketsNow.svg";
 
 const OrderNowButton = () => {
     return (
         <div className='order-now-ticket-container'>
             <div className={'order-now-ticket-button'}>
-                <HandySvg
-                    src={'/ticketsNow.svg'}
+                <OrderNowSVG
                     width={60}
                     height={60}
                 />
