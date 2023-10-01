@@ -51,8 +51,7 @@ const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, ca
                         />
                     </button>
                 </div>
-            </motion.div>,
-            element)
+            </motion.div>, element)
     }
     return null;
 });

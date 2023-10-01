@@ -175,20 +175,21 @@ header {
 .concert-double-name{
     opacity: 0.3;
     margin-top: -2vh;
-    animation: bgBlur ease-out 400ms infinite;
+    filter: blur(1px);
+//    animation: bgBlur ease-out 400ms infinite;
 }
-@keyframes bgBlur {
-    0% {
-        filter: blur(1px);
-        transform: rotateY(5deg);
-    }
-    50%{
-        filter: blur(2px);
-    }
-    100%{
-        filter:blur(1px);
-    }
-}
+//@keyframes bgBlur {
+//    0% {
+//        filter: blur(1px);
+//        transform: rotateY(5deg);
+//    }
+//    50%{
+//        filter: blur(2px);
+//    }
+//    100%{
+//        filter:blur(1px);
+//    }
+//}
 .concert-double-name2{
     opacity: 0.3;
     margin-left: -1vh;
@@ -360,7 +361,6 @@ header {
 .tickets-buy-block{
     @include flex(space-between,center);
     padding:0.5rem;
-    gap:0.5rem;
     border-radius: $border-radius;
     border: 1px solid #000;
     background: #FFF;
