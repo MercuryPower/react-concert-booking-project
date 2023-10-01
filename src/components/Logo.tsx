@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as Arrow} from "../assets/arrow1.svg";
+import Arrow from "../assets/arrow1.svg";
 const Logo = () => {
     return (
         <>
@@ -10,11 +10,11 @@ const Logo = () => {
                 </svg>
                 <h4 className='logo-text'>Booking</h4>
                 <div className='logo-text'>
-                    <Arrow
-                        className={'city_arrow'}
-                        width={10}
-                        height={10}
-                    />
+                    {/*<Arrow*/}
+                    {/*    // className={'city_arrow'}*/}
+                    {/*    // width={10}*/}
+                    {/*    // height={10}*/}
+                    {/*/>*/}
                 </div>
             </div>
 

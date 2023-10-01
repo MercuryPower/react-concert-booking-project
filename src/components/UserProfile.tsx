@@ -1,5 +1,5 @@
 import React from 'react';
-import {HandySvg} from "handy-svg";
+// import Bell from "../assets/bell.svg";
 
 interface UserProfileProps {
     username?: string,
@@ -15,11 +15,10 @@ const UserProfile = (props: UserProfileProps) => {
                 <img style={{width:'59px', height:'59px'}} src={'/profilePictureDefault.png'} alt={'ProfilePicture'} />
             </div>
             <div className={'user-information-bell'}>
-                <HandySvg
-                    src={'/bell.svg'}
-                    width={32}
-                    height={32}
-                />
+                {/*<Bell*/}
+                {/*    // width={32}*/}
+                {/*    // height={32}*/}
+                {/*/>*/}
             </div>
         </div>
     );
