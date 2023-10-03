@@ -39,7 +39,7 @@ const Slider =({concertImages, concertPerformers,concertNames, concertCities, co
         if (!isHoveredSlide && inView) {
             interval = setInterval(() => {
                 nextSlide();
-            }, 6000);
+            }, 7000);
         }
         return () => {
             clearInterval(interval);

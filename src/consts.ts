@@ -2,6 +2,7 @@ import poster1 from "./assets/posters/poster1.png";
 import poster2 from "./assets/posters/poster22.jpg";
 import poster3 from "./assets/posters/poster3.jpg";
 import poster4 from "./assets/posters/poster4.jpg";
+import poster5 from "./assets/posters/sapraa.png";
 
 
 export const concertPlaces = [
@@ -18,12 +19,14 @@ export const concertImages = [
     poster2,
     poster3,
     poster4,
+    poster5
 ];
 export const concertPerformers = [
     'Kai Angel & 9mice',
     'ALBLAK 52',
     'Big Baby Tape',
     'LIL UZI VERT',
+    'SAPRA',
     'LOVV66',
     'SALUKI',
     'Скриптонит',
@@ -70,8 +73,8 @@ export const concertCities = [
     'Saint-Petersburg',
     'Samara',
     'Ufa',
-    'Kazan',
     'Saratov',
+    'Kazan',
     'Tver',
     'Rostov-on-Don',
     'Vladivostok',

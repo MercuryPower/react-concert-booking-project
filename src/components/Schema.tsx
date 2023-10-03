@@ -1,19 +1,46 @@
-import React from 'react';
-import {Container, Stage} from "@pixi/react";
+import React, {useState} from 'react';
 
-interface SchemaProps {
-    width:number,
-    height:number,
-}
-const Schema = ({width, height}:SchemaProps) => {
+import {Stage, Container, Text, Graphics} from "@pixi/react";
+
+const Schema = () => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleMouseOver = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovered(false);
+    };
+
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+    };
+
+    const squareColor = isClicked ? 0x00FF00 : (isHovered ? 0xFF0000 : 0xAAAAAA);
     return (
-        <Stage>
-            <Container>
-                {/*{seats.map((seat) =>*/}
-                {/*    <Seat key={seat} {...seat} />*/}
-                {/*)}*/}
-            </Container>
-        </Stage>
+        <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', flex:'0 0 70%'}}
+            >
+            <Stage style={{width: '100%', maxWidth:'800px'}} height={600} options={{ backgroundColor: "#464646"}}>
+                <Container  >
+                    <Graphics
+                        draw={g => {
+                            g.beginFill(squareColor);
+                            g.drawRect(50, 200, 150, 200);
+                            g.endFill();
+                            g.beginFill('#AAAAAA');
+                            g.drawRect(250, 150, 300, 300);
+                            g.endFill();
+                        }}
+
+                    />
+
+                    <Text mouseover={handleMouseOver} click={() => handleClick} scale={-1} anchor={0.5}  rotation={Math.PI / 2}  text="Сцена" x={125} y={300} />
+                    <Text scale={-1} anchor={0.5}  rotation={Math.PI}  text="Танцпол" x={400} y={300} />
+                </Container>
+            </Stage>
+        </div>
     );
 };
 

@@ -4,13 +4,18 @@ import clsx from "clsx";
 
 interface DropdownProps{
     list:string[];
+    fontSize?:string;
+    svgSize?:number
 }
-const DropdownMenu = ({list}:DropdownProps) => {
+const DropdownMenu = ({list, fontSize, svgSize}:DropdownProps) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [selectedItem, setSelectedItem] = useState(0)
 
     const toggleMenu = () => {
-        setIsMenuActive(!isMenuActive)
+        if(list.length > 1){
+            setIsMenuActive(!isMenuActive)
+        }
+
     }
     const chooseItem = (index :number) => {
         setSelectedItem(index);
@@ -20,15 +25,15 @@ const DropdownMenu = ({list}:DropdownProps) => {
     return (
         <div className={'dropdown-menu'}>
             <div className={'choose-item-dropdown'}>
-                <h1 onClick={toggleMenu}>{list[selectedItem]}</h1>
+                <h1 style={{fontSize:fontSize ? fontSize : '11vh'}} onClick={toggleMenu}>{list[selectedItem]}</h1>
                 <Arrow
                     className={clsx(
                         {
                             'rotate-arrow-dropdown-active': isMenuActive,
                             'rotate-arrow-dropdown-inactive': !isMenuActive
                         })}
-                    width={70}
-                    height={70}
+                    width={svgSize ? svgSize : 70}
+                    height={svgSize ? svgSize : 70}
                 />
             </div>
             {isMenuActive && (

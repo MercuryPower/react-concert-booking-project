@@ -12,7 +12,7 @@ const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
     const [selectedCity, setSelectedCity] = useState(cities[0]);
     const sortedCities = useMemo(() => {
         return [...cities].filter((city) => city.toLowerCase().includes(searchQuery.toLowerCase()))
-    }, [cities, searchQuery])
+    }, [cities,searchQuery])
 
 
     // const sortedCities = [...cities].sort((a,b) => a[sort].localeCompare(b[sort]))
@@ -36,7 +36,7 @@ const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
             <div className={'current-city'} onClick={handleChooseCity}>
                 {selectedCity}
             </div>
-            <ModalWindow  show={show} onClose={handleClose}>
+            <ModalWindow show={show} onClose={handleClose}>
                 <h1>Choose current city:</h1>
                 <div className={'input-city-search'}>
                     <MapPin

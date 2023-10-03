@@ -14,10 +14,13 @@ interface ModalProps {
     children: React.ReactNode;
     confirmButtonText?: string;
     cancelButtonText?: string;
+    width?:string;
+    height?:string;
+    additionalClassName?:string;
 }
 
 
-const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, cancelButtonText} :ModalProps) => {
+const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, cancelButtonText, width, height, additionalClassName} :ModalProps) => {
         const element = useMemo(() => document.createElement('div'), [])
 
     useEffect(() => {
@@ -36,12 +39,12 @@ const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, ca
                 initial={{ opacity: 0}}
                 animate={{ opacity: 1}}
                 transition={{ duration: 0.25 }}
-                className={clsx('modal-window-properties',
+                className={clsx('modal-window-properties', additionalClassName ? additionalClassName : '',
                     {
                         'show' : show,
                     })}
             >
-                <div className={'modal-window-content'}>
+                <div className={'modal-window-content'} style={{height: height ? height : '50vh', width: width ? width : '100vmin'}}>
                     {children}
                     <button className={'modal-window-closeButton'} onClick={onClose}>
                         <Cross
