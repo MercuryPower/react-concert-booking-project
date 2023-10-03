@@ -1,6 +1,7 @@
 import React, {forwardRef, Ref, useState} from 'react';
 import ModalWindow from "./ModalWindow";
 import {motion} from "framer-motion";
+import Schema from "./Schema";
 
 export interface TicketProps{
     id:number;
@@ -80,11 +81,17 @@ const Ticket = forwardRef<HTMLDivElement, TicketProps>(({id, concertPerformer, c
             <ModalWindow
                 show={show}
                 onClose={handleClose}
+                width={'150vh'}
+                height={'70vh'}
+                additionalClassName={'seat-choosing-modal'}
             >
-                <div>
-                    <h1 style={{margin:0}}>{concertPerformer}</h1>
-                    <h2 style={{margin:0}}>{concertDate}</h2>
-                    <h2 style={{margin:0}}>{concertTime}</h2>
+                <div className={'sector-choosing-block'}>
+                    <Schema />
+                    <div className={'information-about-concert'}>
+                        <h1>{concertPerformer}</h1>
+                        <h2>{concertDate}</h2>
+                        <h2>{concertTime}</h2>
+                    </div>
                 </div>
 
             </ModalWindow>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {ReactComponent as Bell} from "../assets/bell.svg";
+import {ReactComponent as UserLogo} from "../assets/defaultUserLogo.svg";
 
 interface UserProfileProps {
     username?: string,
@@ -12,7 +13,7 @@ const UserProfile = (props: UserProfileProps) => {
                 {props.username ?` ${props.username} `: `Log in`}
             </h4>
             <div className={'user-information-button'}>
-                <img style={{width:'59px', height:'59px'}} src={'/vite.svg'} alt={'ProfilePicture'} />
+                <UserLogo width={60} height={60} />
             </div>
             <div className={'user-information-bell'}>
                 <Bell

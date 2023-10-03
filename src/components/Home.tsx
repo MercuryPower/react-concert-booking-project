@@ -18,7 +18,7 @@ import {useInView} from "react-intersection-observer";
 
 
 const Home = () => {
-    const [isScrolled, setIsScrolled] = useState(true);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const {ref, inView} = useInView({
         threshold:0.5
@@ -62,6 +62,18 @@ const Home = () => {
                 <DropdownMenu
                     list={concertPerformers}
                 />
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                    <DropdownMenu
+                        fontSize={'5vh'}
+                        list={concertCities}
+                        svgSize={45}
+                    />
+                    <DropdownMenu
+                        fontSize={'5vh'}
+                        list={concertDates}
+                        svgSize={45}
+                    />
+                </div>
                 <div className={'tickets-title-block'}>
                     <h2>Билеты</h2>
                 </div>

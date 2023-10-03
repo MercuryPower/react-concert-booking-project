@@ -6,8 +6,9 @@
   line-height: normal;
   color: $fontColor;
 }
-@mixin flex($justifyContent:stretch, $alignItems:normal){
+@mixin flex($justifyContent:stretch, $alignItems:normal, $flexDirection:row){
   display: flex;
   justify-content: $justifyContent;
   align-items: $alignItems;
+  flex-direction: $flexDirection;
 }

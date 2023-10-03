@@ -241,7 +241,6 @@ header {
 .concertDate-tickets-block{
     @include font(800, 2vh);
     @include flex(center,center);
-    flex-direction: row;
     gap: 0.25rem
 }
 .buy-ticket-button{
@@ -343,8 +342,7 @@ header {
     }
 }
 .tickets-place-block{
-    @include flex(center,center);
-    flex-direction: column;
+    @include flex(center,center,column);
     margin-top: 20vh;
 }
 .tickets-title-block{
@@ -380,9 +378,8 @@ header {
     margin-top:5rem;
 }
 .ticket-info-column{
-    @include flex(center,center);
+    @include flex(center,center,column);
     flex-wrap: wrap;
-    flex-direction: column;
     gap:0.5rem;
 
 }
@@ -405,12 +402,11 @@ header {
 }
 
 .dropdown-menu{
-    @include flex(center,center);
-    flex-direction: column;
+    @include flex(center,center,column);
     margin-top:3rem;
     width: 75%;
     h1{
-        @include font(700, 11vh, #000,  #fff);
+        @include font(700, null, #000,  #fff);
         margin:0;
         cursor: pointer;
         text-overflow: ellipsis;
@@ -494,16 +490,21 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     z-index: 3;
+    &.seat-choosing-modal{
+        .modal-window-content{
+            align-items: normal;
+        }
+    }
 }
 .modal-window-properties.show{
     @include flex(null,center);
     opacity:1;
 }
+
 .modal-window-content{
-    @include flex(center,center);
+    @include flex(center,center,column);
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-    flex-direction: column;
     gap:0.5rem;
     border-radius: 1.5625rem;
     height: 50vh;
@@ -523,7 +524,6 @@ header {
 .city-choose-block{
     cursor: pointer;
     @include font(700, 4vh);
-
     align-self: center;
     width: 50%;
     h2{
@@ -539,8 +539,7 @@ header {
 
 }
 .city-choose-block-container {
-    @include flex(null,null);
-    flex-direction: column;
+    @include flex(null,null, column);
     margin: 1rem;
     max-height: 100%;
     width: 90%;
@@ -565,5 +564,21 @@ header {
     background-color:#fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     transition: ease-out 200ms;
+}
+.sector-choosing-block{
+    @include flex(null,null)
+
+}
+.information-about-concert{
+    @include flex(center, center,column);
+    flex:0 0 30%;
+    @include font(null,2vh,null);
+    h1{
+        margin:0;
+    }
+    h2{
+        margin:0;
+    }
+
 }
 
