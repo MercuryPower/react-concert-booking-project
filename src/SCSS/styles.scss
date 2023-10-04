@@ -275,6 +275,12 @@ header {
     h2 {
         @include font(300, 4vh, #fff);
         margin:0;
+        text-shadow:
+                0 0 1px #000,
+                0 0 5px rgba(255, 255, 255, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.1),
+                0 0 15px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -290,6 +296,12 @@ header {
     h3 {
         margin:0;
         @include font(700,3vh, #fff);
+        text-shadow:
+                0 0 1px #000,
+                0 0 5px rgba(255, 255, 255, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.1),
+                0 0 15px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -412,7 +424,6 @@ header {
         text-overflow: ellipsis;
         overflow: hidden;
         text-align: left;
-
     }
     &:hover {
         color: #fff;
@@ -566,8 +577,7 @@ header {
     transition: ease-out 200ms;
 }
 .sector-choosing-block{
-    @include flex(null,null)
-
+    @include flex(null,null);
 }
 .information-about-concert{
     @include flex(center, center,column);

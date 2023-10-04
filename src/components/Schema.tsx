@@ -23,14 +23,14 @@ const Schema = () => {
         <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', flex:'0 0 70%'}}
             >
             <Stage style={{width: '100%', maxWidth:'800px'}} height={600} options={{ backgroundColor: "#464646"}}>
-                <Container  >
+                <Container>
                     <Graphics
                         draw={g => {
                             g.beginFill(squareColor);
-                            g.drawRect(50, 200, 150, 200);
+                            g.drawRoundedRect(50, 200, 150, 200, 25);
                             g.endFill();
                             g.beginFill('#AAAAAA');
-                            g.drawRect(250, 150, 300, 300);
+                            g.drawRoundedRect(250, 150, 300, 300,25);
                             g.endFill();
                         }}
 

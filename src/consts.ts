@@ -34,7 +34,6 @@ export const concertPerformers = [
     'PHARAOH',
     'ЛСП',
     'Boulevard Depo',
-
 ];
 export const concertNames = [
     'SECRET SHOW',
@@ -75,6 +74,9 @@ export const concertCities = [
     'Ufa',
     'Saratov',
     'Kazan',
+    'Novgorod',
+    'Irkutsk',
+    'Kursk',
     'Tver',
     'Rostov-on-Don',
     'Vladivostok',
@@ -84,3 +86,19 @@ export const concertCities = [
     'Novosibirsk',
     'Los-Angeles'
 ]
+
+
+const concertInfo = [
+    {
+        id:1,
+        name: concertPerformers[0],
+        concertName: concertNames[0],
+        place: [concertPlaces[0], concertPlaces[1]],
+        time:[concertTimes[0], concertTimes[1]],
+        city: [concertCities[0], concertCities[1]],
+        poster: concertImages[0],
+        date:[concertDates[0], concertDates[1]],
+    }
+]
+
+console.log(concertInfo)
