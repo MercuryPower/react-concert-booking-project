@@ -72,7 +72,7 @@
     background-position: center center;
     height: 110vh;
     position: relative;
-    z-index: 2;
+    z-index: 5;
 }
 
 @keyframes fadeIn {
@@ -119,7 +119,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
     transition: ease-out 200ms;
 }
 .header-scrolled{
@@ -416,7 +416,8 @@ header {
 .dropdown-menu{
     @include flex(center,center,column);
     margin-top:3rem;
-    width: 75%;
+    position: relative;
+    z-index: 3;
     h1{
         @include font(700, null, #000,  #fff);
         margin:0;
@@ -481,6 +482,29 @@ header {
             background-color: #fff;
         }
     }
+}
+.dropdown-menu-items2{
+    @extend .dropdown-menu-items;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left:0;
+    margin: 0;
+    width: 100%;
+    @include font(700,4vh);
+    padding-top: 1rem;
+    flex-direction: column;
+    background-color: #000;
+    color:#fff;
+    max-height: 500px;
+    ul{
+        padding-left:2vh;
+    }
+    li.selected{
+        color:#000;
+        background-color: #fff;
+    }
+    overflow-y: auto;
 }
 .choose-item-dropdown{
     @include flex(center,center);
@@ -589,6 +613,8 @@ header {
     h2{
         margin:0;
     }
-
+}
+.button-choose-all{
+    @extend .buy-ticket-slider-button;
 }
 

@@ -87,10 +87,55 @@ export const concertCities = [
     'Los-Angeles'
 ]
 
+class ConcertInformation {
+    id: number | undefined;
+    name: string[] | undefined;
+    concertName: string | undefined;
 
-const concertInfo = [
+}
+export const concertInfo = [
     {
         id:1,
+        name: 'Kai Angel & 9mice',
+        concertName: concertNames[0],
+        place: [concertPlaces[0], concertPlaces[1]],
+        time:[concertTimes[0], concertTimes[1]],
+        city: [concertCities[0], concertCities[1]],
+        poster: concertImages[0],
+        date:[concertDates[0], concertDates[1]],
+    },
+    {
+        id:2,
+        name: 'ALBLAK 52',
+        concertName: concertNames[0],
+        place: [concertPlaces[0], concertPlaces[1]],
+        time:[concertTimes[0], concertTimes[1]],
+        city: [concertCities[0], concertCities[1]],
+        poster: concertImages[0],
+        date:[concertDates[0], concertDates[1]],
+    },
+    {
+        id:3,
+        name: 'Big Baby Tape',
+        concertName: concertNames[0],
+        place: [concertPlaces[0], concertPlaces[1]],
+        time:[concertTimes[0], concertTimes[1]],
+        city: [concertCities[0], concertCities[1]],
+        poster: concertImages[0],
+        date:[concertDates[0], concertDates[1]],
+    },
+    {
+        id:4,
+        name: 'LIL UZI VERT',
+        concertName: concertNames[0],
+        place: [concertPlaces[0], concertPlaces[1]],
+        time:[concertTimes[0], concertTimes[1]],
+        city: [concertCities[0], concertCities[1]],
+        poster: concertImages[0],
+        date:[concertDates[0], concertDates[1]],
+    },
+    {
+        id:5,
         name: concertPerformers[0],
         concertName: concertNames[0],
         place: [concertPlaces[0], concertPlaces[1]],
@@ -98,7 +143,18 @@ const concertInfo = [
         city: [concertCities[0], concertCities[1]],
         poster: concertImages[0],
         date:[concertDates[0], concertDates[1]],
-    }
+    },
+    {
+        id:6,
+        name: concertPerformers[0],
+        concertName: concertNames[0],
+        place: [concertPlaces[0], concertPlaces[1]],
+        time:[concertTimes[0], concertTimes[1]],
+        city: [concertCities[0], concertCities[1]],
+        poster: concertImages[0],
+        date:[concertDates[0], concertDates[1]],
+    },
+
 ]
 
 console.log(concertInfo)
