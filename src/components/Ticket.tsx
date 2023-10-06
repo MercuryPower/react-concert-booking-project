@@ -85,10 +85,11 @@ const Ticket = forwardRef<HTMLDivElement, TicketProps>(({id, concertPerformer, c
                 height={'70vh'}
                 additionalClassName={'seat-choosing-modal'}
             >
+                <h1 style={{margin:0}}>{concertPlace}</h1>
                 <div className={'sector-choosing-block'}>
                     <Schema />
                     <div className={'information-about-concert'}>
-                        <h1>{concertPerformer}</h1>
+                        <h2>{concertPerformer}</h2>
                         <h2>{concertDate}</h2>
                         <h2>{concertTime}</h2>
                     </div>

@@ -85,17 +85,17 @@ const Slider =({concertImages, concertPerformers,concertNames, concertCities, co
                             </div>
                             <div className={'concert-name-block'}>
                                 <h1 className={'concert-name concert-double-name2'}>{concertNames[currentIndex]}</h1>
-                                <motion.h1 custom={2} variants={textAnimation} className={'concert-name'}>{concertNames[currentIndex]}</motion.h1>
+                                <motion.h1 custom={1} variants={textAnimation} className={'concert-name'}>{concertNames[currentIndex]}</motion.h1>
                             </div>
                         </div>
                         <div className={'city-info'}>
-                            <motion.h2 custom={3} variants={textAnimation}>{concertCities[currentIndex]}</motion.h2>
+                            <motion.h2 custom={2} variants={textAnimation}>{concertCities[currentIndex]}</motion.h2>
                         </div>
                         <div className={'date-info'}>
-                            <motion.h3 custom={4} variants={textAnimation}>{concertDates[currentIndex]}</motion.h3>
+                            <motion.h3 custom={2} variants={textAnimation}>{concertDates[currentIndex]}</motion.h3>
                         </div>
                         <div className={'buy-ticket-slider-block'}>
-                            <motion.button custom={5} variants={textAnimation} className={'buy-ticket-slider-button'} onClick={handleShow}>BUY TICKETS</motion.button>
+                            <motion.button custom={3} variants={textAnimation} className={'buy-ticket-slider-button'} onClick={handleShow}>BUY TICKETS</motion.button>
                         </div>
                         <motion.div custom={2} variants={textAnimation} onClick={prevSlide}>
                             <Arrow
