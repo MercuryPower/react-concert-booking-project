@@ -32,7 +32,7 @@ const Slider =({concertImages, concertPerformers,concertNames, concertCities, co
         setCurrentIndex((prevIndex) => prevIndex === 0 ? concertImages.length - 1 : prevIndex - 1)
     }
 
-    
+
 
     useEffect(() =>{
         let interval: NodeJS.Timer;

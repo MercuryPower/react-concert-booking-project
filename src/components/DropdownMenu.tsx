@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import {ReactComponent as Arrow} from "../assets/arrow1.svg";
 import clsx from "clsx";
-import currentCity from "./CurrentCity";
+import {AnimatePresence, motion} from "framer-motion";
+import {SET_SELECTED_CITY} from "../store/reducers/currentCityReducer";
+import {useDispatch} from "react-redux";
+import {useTypedSelector} from "../store/hooks/useTypedSelector";
 
 interface DropdownProps{
     list:string[];
@@ -11,9 +14,10 @@ interface DropdownProps{
     isCloseable?:boolean;
     width?:string;
     height?:string;
-    onSelect?:(...items:string[]) => void;
+    onSelect?:(item:string) => void;
+    selectedCity?:string;
 }
-const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, isCloseable, onSelect}:DropdownProps) => {
+const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, isCloseable, onSelect,selectedCity }:DropdownProps) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [selectedItem, setSelectedItem] = useState(0)
 
@@ -22,6 +26,7 @@ const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, 
             setIsMenuActive(!isMenuActive)
         }
     }
+
     const chooseItem = (index :number) => {
         setSelectedItem(index);
         if(isCloseable) {
@@ -45,11 +50,19 @@ const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, 
                     height={svgSize ? svgSize : 70}
                 />
             </div>
+            <AnimatePresence>
             {isMenuActive && (
-                <div className={isAnotherVersion ? "dropdown-menu-items2" : "dropdown-menu-items"}>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }} // начальное состояние
+                    animate={{ opacity: 1, y: 0 }} // анимация появления
+                    exit={{ opacity: 0, y: -20 }} // анимация скрытия
+                    transition={{ duration: 0.2 }} // продолжительность анимации
+                    className={isAnotherVersion ? "dropdown-menu-items2" : "dropdown-menu-items"}>
                     {list.map((item, index) => (
                         <ul key={item}>
-                            <li
+                            <motion.li
+                                transition={{ duration: 0.5 }}
+                                whileHover={{ opacity: 0.9}}
                                 key={index}
                                 onClick={() => {
                                     chooseItem(index);
@@ -58,14 +71,15 @@ const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, 
                                 className={selectedItem === index ? 'selected' : ''}
                             >
                                 <h3>{item}</h3>
-                            </li>
+                            </motion.li>
                         </ul>
                     ))}
-                </div>
+                </motion.div>
             )}
-
+            </AnimatePresence>
         </div>
     );
+
 };
 
 export default DropdownMenu;

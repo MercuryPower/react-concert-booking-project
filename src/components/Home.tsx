@@ -3,11 +3,11 @@ import '../SCSS/styles.scss';
 import Slider from "./Slider";
 import Header from "./Header";
 import {
-    concertCities,
+    concertCities, concertCitiesWithAll,
     concertDates,
     concertImages,
     concertNames,
-    concertPerformers,
+    concertPerformers, concertPerformersWithAll,
     concertPlaces,
     concertTimes
 } from '../consts';
@@ -15,12 +15,17 @@ import {TicketProps} from "./Ticket";
 import TicketList from "./TicketList";
 import DropdownMenu from "./DropdownMenu";
 import {useInView} from "react-intersection-observer";
+import {useDispatch, useSelector} from "react-redux";
+import {useTypedSelector} from "../store/hooks/useTypedSelector";
+import {SET_SELECTED_CITY} from "../store/reducers/currentCityReducer";
 
 
 const Home = () => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [selectedArtist, setSelectedArtist] = useState<null | string>(null);
-    const [selectedCity,setSelectedCity] = useState<null | string>(null);
+    const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
+    const [selectedCity,setSelectedCity] = useState<string | null>(null);
+    // const {selectedCity} = useTypedSelector((state) => state.city);
+    // const dispatch = useDispatch();
 
     const {ref, inView} = useInView({
         threshold:0.5
@@ -44,7 +49,7 @@ const Home = () => {
             concertPlace: concertPlaces[i],
             concertTime: concertTimes[i],
             currentCity: concertCities[i],
-            concertImage: concertImages[i]
+            concertImage: concertImages[i + 1]
         });
     }
     const [tickets, setTickets] = useState<TicketProps[]>(ticketsData);
@@ -61,18 +66,17 @@ const Home = () => {
                 concertNames={concertNames}
             />
             <section ref={ref} className={'tickets-place-block'}>
-
                 <DropdownMenu
-                    list={concertPerformers}
+                    list={concertPerformersWithAll}
                     onSelect={(artist:string) => {setSelectedArtist(artist)}}
                 />
                 <DropdownMenu
-                    onSelect={(city:string) => {setSelectedCity(city)}}
+                    onSelect={(city) => setSelectedCity(city)}
                     isCloseable={true}
                     isAnotherVersion={true}
                     width={'70vh'}                  /* нужно сделать чтобы у каждого испольнителя был закреплен свой город, время и дата */
                     fontSize={'5vh'}                /* наверно через объект это сделать можно пока-что тестово */
-                    list={concertCities}
+                    list={concertCitiesWithAll}
                     svgSize={45}
                 />
                 {/*<DropdownMenu*/}
@@ -82,18 +86,23 @@ const Home = () => {
                 {/*    svgSize={45}*/}
                 {/*/>*/}
                 <div className={'tickets-title-block'}>
-                    <div style={{display:'flex', justifyContent:'space-evenly', gap:'1rem'}}>
-                        <h2>Билеты</h2>
-                        {selectedArtist && selectedCity !== null ? <button onClick={()=>setSelectedArtist(null)} className={'button-choose-all'}>All</button> : ''}
-                    </div>
-
+                    <h2>Билеты</h2>
                 </div>
                 <TicketList
-                    currentArtist={selectedArtist}
-                    filterCity={selectedCity}
+                    currentArtist={selectedArtist === 'All Artists' ? null : selectedArtist}
+                    filterCity={selectedCity  === 'All Cities' ? null : selectedCity}
                     tickets={tickets}
                 />
             </section>
+            <section className={'tickets-place-block'}>
+
+            </section>
+            <footer>
+                <br />
+                <br />
+                <br />
+                <br />
+            </footer>
         </>
     );
 };

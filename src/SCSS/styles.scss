@@ -524,7 +524,7 @@ header {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
-    z-index: 3;
+    z-index: 7;
     &.seat-choosing-modal{
         .modal-window-content{
             align-items: normal;

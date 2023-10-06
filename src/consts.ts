@@ -86,7 +86,11 @@ export const concertCities = [
     'Novosibirsk',
     'Los-Angeles'
 ]
+const allArtists = 'All Artists';
+const allCities = 'All Cities';
 
+export const concertPerformersWithAll = [allArtists, ...concertPerformers];
+export const concertCitiesWithAll = [allCities, ...concertCities];
 class ConcertInformation {
     id: number | undefined;
     name: string[] | undefined;
