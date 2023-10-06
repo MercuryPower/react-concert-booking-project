@@ -1,6 +1,9 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import ModalWindow from "./ModalWindow";
 import {ReactComponent as MapPin} from "../assets/location-pin-icon.svg";
+import {useTypedSelector} from "../store/hooks/useTypedSelector";
+import {SET_SELECTED_CITY} from "../store/reducers/currentCityReducer";
+import {useDispatch} from "react-redux";
 
 interface CurrentCityProps{
     cities:string[];
@@ -9,7 +12,9 @@ interface CurrentCityProps{
 const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
     const [show, setShow] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCity, setSelectedCity] = useState(cities[0]);
+    // const [selectedCity, setSelectedCity] = useState(cities[0]);
+    const selectedCity = useTypedSelector((state) => state.city.selectedCity);
+    const dispatch = useDispatch();
     const sortedCities = useMemo(() => {
         return [...cities].filter((city) => city.toLowerCase().includes(searchQuery.toLowerCase()))
     }, [cities,searchQuery])
@@ -56,8 +61,8 @@ const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
                     {sortedCities.map((city, index) =>(
                         <div key={index} className={'city-choose-block'}
                              onClick={() => {
-                                setSelectedCity(city)
-                                setShow(false);
+                                 dispatch({ type: SET_SELECTED_CITY, payload: city });
+                                 setShow(false);
                         }}>
                             <h2 className={'glitch-text'}>{city}</h2>
                         </div>

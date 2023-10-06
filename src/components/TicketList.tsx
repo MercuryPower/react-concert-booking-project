@@ -16,6 +16,9 @@ export interface TicketListProps{
                 }
                 return tickets.filter((ticket) => ticket.concertPerformer === currentArtist );
             }
+            else if(filterCity){
+                return tickets.filter((ticket) => ticket.currentCity === filterCity);
+            }
             return tickets
         }, [currentArtist, filterCity, tickets])
         
@@ -26,7 +29,7 @@ export interface TicketListProps{
                 filteredTickets.map((ticket)=>
                     <Ticket key={ticket.id} {...ticket}/>)
                 :
-                <h1>No City</h1>
+                <h1>There are no concerts of the artist in {filterCity}.</h1>
             }
 
         </div>
