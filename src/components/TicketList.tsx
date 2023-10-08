@@ -1,33 +1,28 @@
 import React, {useMemo} from 'react';
-import Ticket, {TicketProps} from "./Ticket";
+import Ticket  from "./Ticket";
+import {ConcertInfo} from "../consts";
+import {useFilterDropdown} from "./hooks/useFilterDropdown";
 
 
 
 export interface TicketListProps{
-    tickets:TicketProps[];
+    concertInfo :ConcertInfo[];
     currentArtist?:string | null;
     filterCity?:string | null;
 }
-    const TicketList = ({tickets, currentArtist, filterCity}:TicketListProps) => {
-        const filteredTickets = useMemo(() =>{
-            if(currentArtist) {
-                if(filterCity){
-                    return tickets.filter((ticket) => ticket.concertPerformer === currentArtist && ticket.currentCity === filterCity );
-                }
-                return tickets.filter((ticket) => ticket.concertPerformer === currentArtist );
-            }
-            else if(filterCity){
-                return tickets.filter((ticket) => ticket.currentCity === filterCity);
-            }
-            return tickets
-        }, [currentArtist, filterCity, tickets])
-        
+    const TicketList = ({concertInfo, currentArtist, filterCity}:TicketListProps) => {
+    const filteredConcertInfo = useFilterDropdown({ currentArtist, filterCity, concertInfo });
+
+
     return (
         <div className={'tickets-list-block'}>
-            {filteredTickets.length > 0
+            {filteredConcertInfo.length > 0
                 ?
-                filteredTickets.map((ticket)=>
-                    <Ticket key={ticket.id} {...ticket}/>)
+                filteredConcertInfo.map((concert)=>
+                    <Ticket
+                        concertData={concert}
+                        key={concert.id}
+                    />)
                 :
                 <h1>There are no concerts of the artist in {filterCity}.</h1>
             }

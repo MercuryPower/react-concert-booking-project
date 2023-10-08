@@ -21,7 +21,7 @@ interface ModalProps {
 
 
 const ModalWindow = (({show, onClose, onConfirm, children, confirmButtonText, cancelButtonText, width, height, additionalClassName} :ModalProps) => {
-        const element = useMemo(() => document.createElement('div'), [])
+    const element = useMemo(() => document.createElement('div'), [])
 
     useEffect(() => {
         if(show && modalRootElement){

@@ -1,23 +1,17 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../SCSS/styles.scss';
 import Slider from "./Slider";
 import Header from "./Header";
 import {
     concertCities, concertCitiesWithAll,
     concertDates,
-    concertImages,
+    concertImages, concertInfo,
     concertNames,
     concertPerformers, concertPerformersWithAll,
-    concertPlaces,
-    concertTimes
 } from '../consts';
-import {TicketProps} from "./Ticket";
 import TicketList from "./TicketList";
 import DropdownMenu from "./DropdownMenu";
 import {useInView} from "react-intersection-observer";
-import {useDispatch, useSelector} from "react-redux";
-import {useTypedSelector} from "../store/hooks/useTypedSelector";
-import {SET_SELECTED_CITY} from "../store/reducers/currentCityReducer";
 
 
 const Home = () => {
@@ -38,21 +32,21 @@ const Home = () => {
             setIsScrolled(false);
         }
     }, [inView])
-    const ticketsData = [];
+    // const ticketsData = [];
 
-    for (let i = 0; i < concertPerformers.length; i++) {
-        ticketsData.push({
-            id: i + 1,
-            concertName: concertNames[i],
-            concertPerformer: concertPerformers[i],
-            concertDate: concertDates[i],
-            concertPlace: concertPlaces[i],
-            concertTime: concertTimes[i],
-            currentCity: concertCities[i],
-            concertImage: concertImages[i + 1]
-        });
-    }
-    const [tickets, setTickets] = useState<TicketProps[]>(ticketsData);
+    // for (let i = 0; i < concertPerformers.length; i++) {
+    //     ticketsData.push({
+    //         id: i + 1,
+    //         concertName: concertNames[i],
+    //         concertPerformer: concertPerformers[i],
+    //         concertDate: concertDates[i],
+    //         concertPlace: concertPlaces[i],
+    //         concertTime: concertTimes[i],
+    //         currentCity: concertCities[i],
+    //         concertImage: concertImages[i + 1]
+    //     });
+    // }
+    // const [tickets, setTickets] = useState<TicketProps[]>(ticketsData);
 
 
     return (
@@ -91,7 +85,7 @@ const Home = () => {
                 <TicketList
                     currentArtist={selectedArtist === 'All Artists' ? null : selectedArtist}
                     filterCity={selectedCity  === 'All Cities' ? null : selectedCity}
-                    tickets={tickets}
+                    concertInfo={concertInfo}
                 />
             </section>
             <section className={'tickets-place-block'}>

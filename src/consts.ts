@@ -97,67 +97,124 @@ class ConcertInformation {
     concertName: string | undefined;
 
 }
-export const concertInfo = [
+export interface ConcertInfo {
+    id: number;
+    artist: string;
+    concertName: string;
+    concerts:{
+        city: string;
+        time: string;
+        place: string;
+        poster: string;
+        date: string;
+    }[];
+}
+export const concertInfo:ConcertInfo[] = [
     {
         id:1,
-        name: 'Kai Angel & 9mice',
-        concertName: concertNames[0],
-        place: [concertPlaces[0], concertPlaces[1]],
-        time:[concertTimes[0], concertTimes[1]],
-        city: [concertCities[0], concertCities[1]],
-        poster: concertImages[0],
-        date:[concertDates[0], concertDates[1]],
+        artist: 'Kai Angel & 9mice',
+        concertName: 'SECRET SHOW',
+        concerts: [
+            {
+                city: 'Moscow',
+                time:'19:00',
+                place: concertPlaces[1],
+                poster: concertImages[0],
+                date: concertDates[0],
+            },
+            {
+                city: 'Saint-Petersburg',
+                time:'20:00',
+                place: concertPlaces[2],
+                poster: concertImages[0],
+                date: concertDates[1],
+            },
+            {
+                city: 'Samara',
+                time:'20:00',
+                place:  concertPlaces[0],
+                poster: concertImages[0],
+                date: concertDates[2],
+            },
+            {
+                city: 'Kazan',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: concertDates[3],
+            }
+        ]
+
     },
     {
         id:2,
-        name: 'ALBLAK 52',
-        concertName: concertNames[0],
-        place: [concertPlaces[0], concertPlaces[1]],
-        time:[concertTimes[0], concertTimes[1]],
-        city: [concertCities[0], concertCities[1]],
-        poster: concertImages[0],
-        date:[concertDates[0], concertDates[1]],
+        artist: 'ALBLAK 52',
+        concertName: concertNames[1],
+        concerts: [
+            {
+                city:'Moscow',
+                time:'18:00',
+                place: concertPlaces[0],
+                poster: concertImages[0],
+                date:concertDates[0],
+            },
+            {
+                city:'Saint-Petersburg',
+                time:'20:00',
+                place:concertPlaces[1],
+                poster: concertImages[0],
+                date:concertDates[1],
+            },
+            {
+                city:'Tver',
+                time:'22:00',
+                place: concertPlaces[2],
+                poster: concertImages[0],
+                date:concertDates[2],
+            }
+        ]
+
     },
-    {
-        id:3,
-        name: 'Big Baby Tape',
-        concertName: concertNames[0],
-        place: [concertPlaces[0], concertPlaces[1]],
-        time:[concertTimes[0], concertTimes[1]],
-        city: [concertCities[0], concertCities[1]],
-        poster: concertImages[0],
-        date:[concertDates[0], concertDates[1]],
-    },
-    {
-        id:4,
-        name: 'LIL UZI VERT',
-        concertName: concertNames[0],
-        place: [concertPlaces[0], concertPlaces[1]],
-        time:[concertTimes[0], concertTimes[1]],
-        city: [concertCities[0], concertCities[1]],
-        poster: concertImages[0],
-        date:[concertDates[0], concertDates[1]],
-    },
-    {
-        id:5,
-        name: concertPerformers[0],
-        concertName: concertNames[0],
-        place: [concertPlaces[0], concertPlaces[1]],
-        time:[concertTimes[0], concertTimes[1]],
-        city: [concertCities[0], concertCities[1]],
-        poster: concertImages[0],
-        date:[concertDates[0], concertDates[1]],
-    },
-    {
-        id:6,
-        name: concertPerformers[0],
-        concertName: concertNames[0],
-        place: [concertPlaces[0], concertPlaces[1]],
-        time:[concertTimes[0], concertTimes[1]],
-        city: [concertCities[0], concertCities[1]],
-        poster: concertImages[0],
-        date:[concertDates[0], concertDates[1]],
-    },
+    // {
+    //     id:3,
+    //     artist: 'Big Baby Tape',
+    //     concertName: concertNames[2],
+    //     city: ['Moscow','Saint-Petersburg'],
+    //     time:['19:00', '21:00'],
+    //     place: [concertPlaces[0], concertPlaces[1]],
+    //     poster: concertImages[0],
+    //     date:[concertDates[0], concertDates[1]],
+    // },
+    // {
+    //     id:4,
+    //     artist: 'LIL UZI VERT',
+    //     concertName: concertNames[3],
+    //     city: ['Moscow','Saint-Petersburg', 'Ufa', 'Los-Angeles'],
+    //     time:['20:00', '22:00', '19:00', '04:00'],
+    //     place: [concertCities[0], concertCities[1],concertDates[2], concertDates[3]],
+    //     poster: concertImages[0],
+    //     date:[concertDates[0], concertDates[1]],
+    // },
+    // {
+    //     id:5,
+    //     artist: 'SAPRA',
+    //     concertName: concertNames[4],
+    //     city: ['Saratov', 'Samara'],
+    //     time:['19:00','18:00'],
+    //     place: [concertCities[0], concertCities[1]],
+    //     poster: concertImages[0],
+    //     date:[concertDates[0], concertDates[1]],
+    // },
+    // {
+    //     id:6,
+    //     artist: 'LOVV66',
+    //     concertName: concertNames[5],
+    //     city: ['Moscow','Saint-Petersburg', 'Irkutsk', 'Volgograd'],
+    //     time:['19:30', '22:00', '17:00', '20:00'],
+    //     place: [concertCities[0], concertCities[1]],
+    //     poster: concertImages[0],
+    //     date:[concertDates[0], concertDates[1], concertDates[2], concertDates[3]],
+    // },
 
 ]
 

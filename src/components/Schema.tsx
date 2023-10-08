@@ -36,8 +36,8 @@ const Schema = () => {
 
                     />
 
-                    <Text mouseover={handleMouseOver} click={() => handleClick} scale={-1} anchor={0.5}  rotation={Math.PI / 2}  text="Сцена" x={125} y={300} />
-                    <Text scale={-1} anchor={0.5}  rotation={Math.PI}  text="Танцпол" x={400} y={300} />
+                    <Text  key="scene" mouseover={handleMouseOver} click={() => handleClick} scale={-1} anchor={0.5}  rotation={Math.PI / 2}  text="Сцена" x={125} y={300} />
+                    <Text  key="dancefloor" scale={-1} anchor={0.5}  rotation={Math.PI}  text="Танцпол" x={400} y={300} />
                 </Container>
             </Stage>
         </div>
