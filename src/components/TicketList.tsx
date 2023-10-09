@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import Ticket  from "./Ticket";
-import {ConcertInfo} from "../consts";
-import {useFilterDropdown} from "./hooks/useFilterDropdown";
+import {ConcertInfo} from "../data";
+import {useFilterItems} from "./hooks/useFilterItems";
 
 
 
@@ -11,7 +11,7 @@ export interface TicketListProps{
     filterCity?:string | null;
 }
     const TicketList = ({concertInfo, currentArtist, filterCity}:TicketListProps) => {
-    const filteredConcertInfo = useFilterDropdown({ currentArtist, filterCity, concertInfo });
+    const filteredConcertInfo = useFilterItems({ currentArtist, filterCity, concertInfo });
 
 
     return (

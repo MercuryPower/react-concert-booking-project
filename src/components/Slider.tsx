@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {ReactComponent as Arrow} from "../assets/arrow1.svg";
+import React, {useCallback, useEffect, useState} from 'react';
+import {ReactComponent as Arrow} from "../assets/svg/arrow1.svg";
 import clsx from "clsx";
 import {motion} from 'framer-motion'
 import {useInView} from "react-intersection-observer";

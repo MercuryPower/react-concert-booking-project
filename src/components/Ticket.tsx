@@ -2,7 +2,7 @@
     import ModalWindow from "./ModalWindow";
     import {motion} from "framer-motion";
     import Schema from "./Schema";
-    import {ConcertInfo} from "../consts";
+    import {ConcertInfo} from "../data";
 
     const Ticket = forwardRef<HTMLDivElement,{ concertData: ConcertInfo }>(({ concertData }, ref) => {
         const [showArray, setShowArray] = useState(new Array(concertData.concerts.length).fill(false));
@@ -43,7 +43,7 @@
                 >
                     <div className={'ticket-info-column first'}>
                         <div className={'currentYear-tickets-block'}>
-                            {new Date().getFullYear()}
+                            {'2023'}
                         </div>
                         <div  className={'concertCity-tickets-block'}>
                             {concert.city}
@@ -94,7 +94,6 @@
                             <h2>{concert.time}</h2>
                         </div>
                     </div>
-
                 </ModalWindow>
                 </div>
             ))}

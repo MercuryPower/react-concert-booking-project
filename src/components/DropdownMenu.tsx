@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
-import {ReactComponent as Arrow} from "../assets/arrow1.svg";
+import {ReactComponent as Arrow} from "../assets/svg/arrow1.svg";
 import clsx from "clsx";
 import {AnimatePresence, motion} from "framer-motion";
-import {SET_SELECTED_CITY} from "../store/reducers/currentCityReducer";
-import {useDispatch} from "react-redux";
-import {useTypedSelector} from "../store/hooks/useTypedSelector";
 
 interface DropdownProps{
     list:string[];
@@ -15,9 +12,8 @@ interface DropdownProps{
     width?:string;
     height?:string;
     onSelect?:(item:string) => void;
-    selectedCity?:string;
 }
-const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, isCloseable, onSelect,selectedCity }:DropdownProps) => {
+const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, isCloseable, onSelect}:DropdownProps) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [selectedItem, setSelectedItem] = useState(0)
 
@@ -53,10 +49,10 @@ const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, 
             <AnimatePresence>
             {isMenuActive && (
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }} // начальное состояние
-                    animate={{ opacity: 1, y: 0 }} // анимация появления
-                    exit={{ opacity: 0, y: -20 }} // анимация скрытия
-                    transition={{ duration: 0.2 }} // продолжительность анимации
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.2 }}
                     className={isAnotherVersion ? "dropdown-menu-items2" : "dropdown-menu-items"}>
                     {list.map((item, index) => (
                         <ul key={item}>

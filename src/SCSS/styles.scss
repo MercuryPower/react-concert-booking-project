@@ -73,6 +73,7 @@
     height: 110vh;
     position: relative;
     z-index: 5;
+
 }
 
 @keyframes fadeIn {
@@ -309,7 +310,7 @@ header {
     text-align: center;
     width: 100%;
     position: absolute;
-    bottom:17.5%;
+    bottom:10%;
     right: 0;
     left: 0;
     z-index: 1;

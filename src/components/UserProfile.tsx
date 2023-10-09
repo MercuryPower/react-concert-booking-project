@@ -1,7 +1,7 @@
 import React from 'react';
-import {ReactComponent as Bell} from "../assets/bell.svg";
-import {ReactComponent as UserLogo} from "../assets/defaultUserLogo.svg";
-import {ReactComponent as EnterLogo} from "../assets/enter.svg";
+import {ReactComponent as Bell} from "../assets/svg/bell.svg";
+import {ReactComponent as UserLogo} from "../assets/svg/defaultUserLogo.svg";
+import {ReactComponent as EnterLogo} from "../assets/svg/enter.svg";
 
 interface UserProfileProps {
     username?: string,

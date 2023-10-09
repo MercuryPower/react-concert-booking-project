@@ -8,7 +8,7 @@ import {
     concertImages, concertInfo,
     concertNames,
     concertPerformers, concertPerformersWithAll,
-} from '../consts';
+} from '../data';
 import TicketList from "./TicketList";
 import DropdownMenu from "./DropdownMenu";
 import {useInView} from "react-intersection-observer";
@@ -18,35 +18,19 @@ const Home = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
     const [selectedCity,setSelectedCity] = useState<string | null>(null);
-    // const {selectedCity} = useTypedSelector((state) => state.city);
-    // const dispatch = useDispatch();
 
     const {ref, inView} = useInView({
-        threshold:0.5
+        triggerOnce:true,
+        threshold: 0.2
     })
 
-    useEffect(() => {
+    useEffect(()=> {
         if(inView){
             setIsScrolled(true);
         } else{
             setIsScrolled(false);
         }
     }, [inView])
-    // const ticketsData = [];
-
-    // for (let i = 0; i < concertPerformers.length; i++) {
-    //     ticketsData.push({
-    //         id: i + 1,
-    //         concertName: concertNames[i],
-    //         concertPerformer: concertPerformers[i],
-    //         concertDate: concertDates[i],
-    //         concertPlace: concertPlaces[i],
-    //         concertTime: concertTimes[i],
-    //         currentCity: concertCities[i],
-    //         concertImage: concertImages[i + 1]
-    //     });
-    // }
-    // const [tickets, setTickets] = useState<TicketProps[]>(ticketsData);
 
 
     return (
@@ -68,8 +52,8 @@ const Home = () => {
                     onSelect={(city) => setSelectedCity(city)}
                     isCloseable={true}
                     isAnotherVersion={true}
-                    width={'70vh'}                  /* нужно сделать чтобы у каждого испольнителя был закреплен свой город, время и дата */
-                    fontSize={'5vh'}                /* наверно через объект это сделать можно пока-что тестово */
+                    width={'70vh'}
+                    fontSize={'5vh'}
                     list={concertCitiesWithAll}
                     svgSize={45}
                 />
@@ -87,6 +71,18 @@ const Home = () => {
                     filterCity={selectedCity  === 'All Cities' ? null : selectedCity}
                     concertInfo={concertInfo}
                 />
+            </section>
+            <section className={'tickets-place-block'}>
+
+            </section>
+            <section className={'tickets-place-block'}>
+
+            </section>
+            <section className={'tickets-place-block'}>
+
+            </section>
+            <section className={'tickets-place-block'}>
+
             </section>
             <section className={'tickets-place-block'}>
 

@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useRef} from 'react';
 import Modal from 'react-bootstrap/Modal';
 import {Button} from "react-bootstrap";
 import clsx from "clsx";
-import {ReactComponent as Cross} from "../assets/closeSign.svg";
+import {ReactComponent as Cross} from "../assets/svg/closeSign.svg";
 import {createPortal} from "react-dom";
 import {modalRootElement} from "../index";
 import { motion } from 'framer-motion';

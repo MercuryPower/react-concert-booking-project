@@ -40,7 +40,6 @@ export const concertNames = [
     'FIRMA MUSIC FESTIVAL',
     'ATLANTA FEST',
     'ROLLING LOUD',
-    ''
 ];
 export const concertDates = [
     '28.05',
@@ -73,6 +72,7 @@ export const concertCities = [
     'Samara',
     'Ufa',
     'Saratov',
+    'Engels',
     'Kazan',
     'Novgorod',
     'Irkutsk',
@@ -91,22 +91,16 @@ const allCities = 'All Cities';
 
 export const concertPerformersWithAll = [allArtists, ...concertPerformers];
 export const concertCitiesWithAll = [allCities, ...concertCities];
-class ConcertInformation {
-    id: number | undefined;
-    name: string[] | undefined;
-    concertName: string | undefined;
-
-}
 export interface ConcertInfo {
     id: number;
     artist: string;
-    concertName: string;
+    concertName?: string;
     concerts:{
         city: string;
         time: string;
         place: string;
         poster: string;
-        date: string;
+        date?: string;
     }[];
 }
 export const concertInfo:ConcertInfo[] = [
@@ -141,7 +135,6 @@ export const concertInfo:ConcertInfo[] = [
                 time:'21:00',
                 place: concertPlaces[4],
                 poster: concertImages[0],
-                date: concertDates[3],
             }
         ]
 
@@ -170,52 +163,92 @@ export const concertInfo:ConcertInfo[] = [
                 time:'22:00',
                 place: concertPlaces[2],
                 poster: concertImages[0],
-                date:concertDates[2],
             }
         ]
-
     },
-    // {
-    //     id:3,
-    //     artist: 'Big Baby Tape',
-    //     concertName: concertNames[2],
-    //     city: ['Moscow','Saint-Petersburg'],
-    //     time:['19:00', '21:00'],
-    //     place: [concertPlaces[0], concertPlaces[1]],
-    //     poster: concertImages[0],
-    //     date:[concertDates[0], concertDates[1]],
-    // },
-    // {
-    //     id:4,
-    //     artist: 'LIL UZI VERT',
-    //     concertName: concertNames[3],
-    //     city: ['Moscow','Saint-Petersburg', 'Ufa', 'Los-Angeles'],
-    //     time:['20:00', '22:00', '19:00', '04:00'],
-    //     place: [concertCities[0], concertCities[1],concertDates[2], concertDates[3]],
-    //     poster: concertImages[0],
-    //     date:[concertDates[0], concertDates[1]],
-    // },
-    // {
-    //     id:5,
-    //     artist: 'SAPRA',
-    //     concertName: concertNames[4],
-    //     city: ['Saratov', 'Samara'],
-    //     time:['19:00','18:00'],
-    //     place: [concertCities[0], concertCities[1]],
-    //     poster: concertImages[0],
-    //     date:[concertDates[0], concertDates[1]],
-    // },
-    // {
-    //     id:6,
-    //     artist: 'LOVV66',
-    //     concertName: concertNames[5],
-    //     city: ['Moscow','Saint-Petersburg', 'Irkutsk', 'Volgograd'],
-    //     time:['19:30', '22:00', '17:00', '20:00'],
-    //     place: [concertCities[0], concertCities[1]],
-    //     poster: concertImages[0],
-    //     date:[concertDates[0], concertDates[1], concertDates[2], concertDates[3]],
-    // },
-
+    {
+        id:3,
+        artist: 'Big Baby Tape',
+        concertName: 'BENZO GANG TOUR 2023',
+        concerts: [
+            {
+                city:'Moscow',
+                time:'18:00',
+                place: concertPlaces[0],
+                poster: concertImages[0],
+                date:concertDates[0],
+            },
+            {
+                city:'Saint-Petersburg',
+                time:'20:00',
+                place:concertPlaces[1],
+                poster: concertImages[0],
+                date:concertDates[1],
+            },
+            {
+                city:'Samara',
+                time:'19:00',
+                place: concertPlaces[2],
+                poster: concertImages[0],
+                date:concertDates[3],
+            }
+        ]
+    },
+    {
+        id:4,
+        artist: 'LIL UZI VERT',
+        concertName: 'ROLLING LOUD',
+        concerts: [
+            {
+                city:'Moscow',
+                time:'18:00',
+                place: concertPlaces[0],
+                poster: concertImages[0],
+                date:concertDates[0],
+            },
+            {
+                city:'Saint-Petersburg',
+                time:'20:00',
+                place:concertPlaces[1],
+                poster: concertImages[0],
+                date:concertDates[1],
+            },
+            {
+                city:'Los-Angeles',
+                time:'04:00',
+                place: concertPlaces[3],
+                poster: concertImages[3],
+                date:concertDates[3],
+            },
+            {
+                city:'Novgorod',
+                time:'18:45',
+                place: concertPlaces[2],
+                poster: concertImages[0],
+                date:concertDates[4],
+            }
+        ]
+    },
+    {
+        id:5,
+        artist: 'SAPRA',
+        concerts: [
+            {
+                city:'Saratov',
+                time:'18:00',
+                place: 'ONYX CLUB',
+                poster: concertImages[0],
+                date:concertDates[0],
+            },
+            {
+                city:'Engels',
+                time:'18:00',
+                place: concertPlaces[0],
+                poster: concertImages[0],
+                date:concertDates[1],
+            },
+        ]
+    },
 ]
 
 console.log(concertInfo)
