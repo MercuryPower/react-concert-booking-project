@@ -26,7 +26,6 @@ const Header = ({...props}:HeaderProps) => {
             initial={'hidden'}
             custom={1}
             transition={{duration:0.5}}
-            viewport={{amount:0.1,once:true}}
             whileInView={'visible'}
             className={clsx({
                 'scrolled':props.isScrolled

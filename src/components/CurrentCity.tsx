@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import ModalWindow from "./ModalWindow";
-import {ReactComponent as MapPin} from "../assets/location-pin-icon.svg";
+import {ReactComponent as MapPin} from "../assets/svg/location-pin-icon.svg";
 import {useTypedSelector} from "../store/hooks/useTypedSelector";
 import {SET_SELECTED_CITY} from "../store/reducers/currentCityReducer";
 import {useDispatch} from "react-redux";

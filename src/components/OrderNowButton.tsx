@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as OrderNowSVG} from "../assets/TicketsNow.svg";
+import {ReactComponent as OrderNowSVG} from "../assets/svg/TicketsNow.svg";
 
 const OrderNowButton = () => {
     return (
