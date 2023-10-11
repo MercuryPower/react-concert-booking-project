@@ -435,11 +435,6 @@ header {
             color: #fff;
             transition: color ease-out 600ms;
         }
-        svg {
-            fill: #fff;
-            transition: fill ease-out 600ms;
-            cursor: pointer;
-        }
         .selected {
             color: #000;
             background-color: #fff;
@@ -448,11 +443,10 @@ header {
     }
 }
 .rotate-arrow-dropdown-active{
-    transform: rotate(270deg);
     margin-left: 1.38rem;
 }
 .rotate-arrow-dropdown-inactive{
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     margin-left: 1.38rem;
 }
 .dropdown-menu-items{
@@ -618,4 +612,25 @@ header {
 .button-choose-all{
     @extend .buy-ticket-slider-button;
 }
-
+.dates-parent-block{
+    @include flex(center,center,column);
+    @include font(700,3vh);
+    margin-top:3rem;
+    h1{
+        margin: 0;
+    }
+}
+.date-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    &:hover{
+        background-color: #fff;
+        color: #000;
+        transition: color ease-out 600ms;
+    }
+}

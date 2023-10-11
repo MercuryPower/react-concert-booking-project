@@ -2,18 +2,19 @@ import React, {useState} from 'react';
 import {ReactComponent as Arrow} from "../assets/svg/arrow1.svg";
 import clsx from "clsx";
 import {AnimatePresence, motion} from "framer-motion";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faAnglesUp, faAngleUp} from "@fortawesome/free-solid-svg-icons";
 
 interface DropdownProps{
     list:string[];
     fontSize?:string;
-    svgSize?:number;
     isAnotherVersion?:boolean;
     isCloseable?:boolean;
     width?:string;
     height?:string;
     onSelect?:(item:string) => void;
 }
-const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, isCloseable, onSelect}:DropdownProps) => {
+const DropdownMenu = ({list, fontSize,isAnotherVersion = false, width, isCloseable, onSelect}:DropdownProps) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [selectedItem, setSelectedItem] = useState(0)
 
@@ -35,17 +36,14 @@ const DropdownMenu = ({list, fontSize, svgSize,isAnotherVersion = false, width, 
     return (
         <div className={'dropdown-menu'} style={{width:width ? width : '75%'}}>
             <div className={'choose-item-dropdown'}>
-                <h1 style={{fontSize:fontSize ? fontSize : '11vh'}} onClick={toggleMenu}>{list[selectedItem]}</h1>
-                <Arrow
-                    className={clsx(
-                        {
-                            'rotate-arrow-dropdown-active': isMenuActive,
-                            'rotate-arrow-dropdown-inactive': !isMenuActive
-                        })}
-                    width={svgSize ? svgSize : 70}
-                    height={svgSize ? svgSize : 70}
-                />
+                    <h1 style={{fontSize:fontSize ? fontSize : '11vh'}} onClick={toggleMenu}>{list[selectedItem]}</h1>
+                <FontAwesomeIcon
+                    style={{fontSize:fontSize ? fontSize : '8vh' }}
+                    className={clsx({'rotate-arrow-dropdown-active': isMenuActive, 'rotate-arrow-dropdown-inactive': !isMenuActive})}
+                    icon={faAngleUp} />
             </div>
+
+
             <AnimatePresence>
             {isMenuActive && (
                 <motion.div
