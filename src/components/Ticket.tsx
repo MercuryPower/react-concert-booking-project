@@ -2,7 +2,7 @@
     import ModalWindow from "./ModalWindow";
     import {motion} from "framer-motion";
     import Schema from "./Schema";
-    import {ConcertInfo} from "../data";
+    import {concertDates, ConcertInfo} from "../data";
 
     const Ticket = forwardRef<HTMLDivElement,{ concertData: ConcertInfo }>(({ concertData }, ref) => {
         const [showArray, setShowArray] = useState(new Array(concertData.concerts.length).fill(false));
@@ -40,6 +40,7 @@
                     whileInView={'visible'}
                     ref={ref}
                     className={'tickets-buy-block'}
+
                 >
                     <div className={'ticket-info-column first'}>
                         <div className={'currentYear-tickets-block'}>
@@ -56,11 +57,13 @@
                         <div className={'concertName-tickets-block'}>
                             {concertData.concertName}
                         </div>
-                        <div className={'concertPerformer-tickets-block'}>
+                        <div className={'concertPerformer-tickets-block'} >
                             {concertData.artist}
                         </div>
                         <div className={'concertTime-tickets-block'}>
-                            {concert.time}
+                            {concert.time ?
+                                concert.time : 'XX:XX'
+                            }
                         </div>
                     </div>
                     <div className={'ticket-info-column last'}>

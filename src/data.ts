@@ -90,14 +90,19 @@ const allArtists = 'All Artists';
 const allCities = 'All Cities';
 
 export const concertPerformersWithAll = [allArtists, ...concertPerformers];
-export const concertCitiesWithAll = [allCities, ...concertCities];
+
+export const concertCitiesWithAll = [
+    allCities,
+    ...concertCities.slice(0, 3),
+    ...concertCities.slice(3).sort()
+];
 export interface ConcertInfo {
     id: number;
     artist: string;
     concertName?: string;
     concerts:{
         city: string;
-        time: string;
+        time?: string;
         place: string;
         poster: string;
         date?: string;
@@ -148,21 +153,21 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Moscow',
                 time:'18:00',
                 place: concertPlaces[0],
-                poster: concertImages[0],
+                poster: concertImages[1],
                 date:concertDates[0],
             },
             {
                 city:'Saint-Petersburg',
                 time:'20:00',
                 place:concertPlaces[1],
-                poster: concertImages[0],
+                poster: concertImages[1],
                 date:concertDates[1],
             },
             {
                 city:'Tver',
                 time:'22:00',
                 place: concertPlaces[2],
-                poster: concertImages[0],
+                poster: concertImages[1],
             }
         ]
     },
@@ -175,21 +180,21 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Moscow',
                 time:'18:00',
                 place: concertPlaces[0],
-                poster: concertImages[0],
+                poster: concertImages[2],
                 date:concertDates[0],
             },
             {
                 city:'Saint-Petersburg',
                 time:'20:00',
                 place:concertPlaces[1],
-                poster: concertImages[0],
+                poster: concertImages[2],
                 date:concertDates[1],
             },
             {
                 city:'Samara',
                 time:'19:00',
                 place: concertPlaces[2],
-                poster: concertImages[0],
+                poster: concertImages[2],
                 date:concertDates[3],
             }
         ]
@@ -203,14 +208,14 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Moscow',
                 time:'18:00',
                 place: concertPlaces[0],
-                poster: concertImages[0],
+                poster: concertImages[3],
                 date:concertDates[0],
             },
             {
                 city:'Saint-Petersburg',
                 time:'20:00',
                 place:concertPlaces[1],
-                poster: concertImages[0],
+                poster: concertImages[3],
                 date:concertDates[1],
             },
             {
@@ -224,7 +229,7 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Novgorod',
                 time:'18:45',
                 place: concertPlaces[2],
-                poster: concertImages[0],
+                poster: concertImages[3],
                 date:concertDates[4],
             }
         ]
@@ -237,14 +242,13 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Saratov',
                 time:'18:00',
                 place: 'ONYX CLUB',
-                poster: concertImages[0],
+                poster: concertImages[4],
                 date:concertDates[0],
             },
             {
                 city:'Engels',
-                time:'18:00',
                 place: concertPlaces[0],
-                poster: concertImages[0],
+                poster: concertImages[4],
                 date:concertDates[1],
             },
         ]
