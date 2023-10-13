@@ -6,11 +6,6 @@ import {useInView} from "react-intersection-observer";
 import ModalWindow from "./ModalWindow";
 import {ConcertInfo} from "../data";
 export interface SliderProps{
-    // concertPerformers:string[];
-    // concertNames:string[];
-    // concertImages: string[];
-    // concertCities:string[];
-    // concertDates:string[];
     concertData: ConcertInfo[];
 }
 
@@ -19,7 +14,7 @@ export interface SliderProps{
 
 const Slider =({concertData}:SliderProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isSwitched, setIsSwitched] = useState(false);
+    const [isSwitched ] = useState(false);
     const [isHoveredSlide, setIsHoveredSlide] = useState(false);
     const [show, setShow] = useState(false)
     const {ref, inView} = useInView();
@@ -28,33 +23,33 @@ const Slider =({concertData}:SliderProps) => {
         setShow(!show)
     }
     const nextSlide = useCallback(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % 5);
     }, []);
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? 3 : prevIndex - 1
+            prevIndex === 0 ? 4 : prevIndex - 1
         );
     };
 
 
 
-    useEffect(() =>{
-        let interval: NodeJS.Timer;
-        if (!isHoveredSlide && inView) {
-            interval = setInterval(() => {
-                nextSlide();
-            }, 7000);
-        }
-        return () => {
-            clearInterval(interval);
-        };
-},[inView, isHoveredSlide, nextSlide])
-
+//     useEffect(() =>{
+//         let interval: NodeJS.Timer;
+//         if (!isHoveredSlide && inView) {
+//             interval = setInterval(() => {
+//                 nextSlide();
+//             }, 7000);
+//         }
+//         return () => {
+//             clearInterval(interval);
+//         };
+// },[inView, isHoveredSlide, nextSlide])
     const sectionStyle = {
-        backgroundImage: `url(${concertData[currentIndex].concerts[currentIndex].poster || ''})`,
+        backgroundImage: `url(${concertData[currentIndex]?.concerts[0]?.poster || ''})`,
     };
 
+    
     const textAnimation = {
         hidden:{
             opacity:0
@@ -89,18 +84,28 @@ const Slider =({concertData}:SliderProps) => {
                             <motion.h1 custom={1} variants={textAnimation} className={'concert-performer'}>{concertData[currentIndex].artist}</motion.h1>
                         </div>
                         <div className={'concert-name-block'}>
-                            <h1 className={'concert-name concert-double-name2'}>{concertData[currentIndex].concertName}</h1>
-                            <motion.h1 custom={1} variants={textAnimation} className={'concert-name'}>{concertData[currentIndex].concertName}</motion.h1>
+                            <h1 className={'concert-name concert-double-name2'}>{concertData[currentIndex].concertName || ''}</h1>
+                            <motion.h1 custom={1} variants={textAnimation} className={'concert-name'}>{concertData[currentIndex].concertName || ''}</motion.h1>
                         </div>
                     </div>
                     <div className={'city-info'}>
-                        <motion.h2 custom={2} variants={textAnimation}>{concertData[currentIndex].concerts[currentIndex].city}</motion.h2>
+                        {concertData[currentIndex].concerts.map((city, index) => (
+                            <>
+                                <motion.h2 custom={2} variants={textAnimation}>{city.city} </motion.h2>
+                                <motion.h2 custom={2} variants={textAnimation}> {index < concertData[currentIndex].concerts.length - 1 && '|'}</motion.h2>
+                            </>
+                        ))}
                     </div>
                     <div className={'date-info'}>
-                        <motion.h3 custom={2} variants={textAnimation}>{concertData[currentIndex].concerts[currentIndex].date}</motion.h3>
+                        {concertData[currentIndex].concerts.map((data, index) => (
+                            <>
+                                <motion.h3 custom={3} variants={textAnimation}>{data.place}</motion.h3>
+                                <motion.h3 custom={3} variants={textAnimation}> {index < concertData[currentIndex].concerts.length - 1 && '|'}</motion.h3>
+                            </>
+                        ))}
                     </div>
                     <div className={'buy-ticket-slider-block'}>
-                        <motion.button custom={3} variants={textAnimation} className={'buy-ticket-slider-button'} onClick={handleShow}>BUY TICKETS</motion.button>
+                        <motion.button custom={4} variants={textAnimation} className={'buy-ticket-slider-button'} onClick={handleShow}>BUY TICKETS</motion.button>
                     </div>
                     <motion.div custom={2} variants={textAnimation} onClick={prevSlide}>
                         <Arrow

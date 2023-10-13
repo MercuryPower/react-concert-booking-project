@@ -2,7 +2,7 @@ import poster1 from "./assets/posters/poster1.png";
 import poster2 from "./assets/posters/poster22.jpg";
 import poster3 from "./assets/posters/poster3.jpg";
 import poster4 from "./assets/posters/poster4.jpg";
-import poster5 from "./assets/posters/sapraa.png";
+import poster5 from "./assets/posters/poster5.png";
 
 
 export const concertPlaces = [
@@ -19,7 +19,7 @@ export const concertImages = [
     poster2,
     poster3,
     poster4,
-    poster5
+    poster5,
 ];
 export const concertPerformers = [
     'Kai Angel & 9mice',
@@ -53,19 +53,6 @@ export const concertDates = [
     '04.12',
     '05.10',
 ];
-export const concertTimes = [
-    '21:00',
-    '22:00',
-    '17:30',
-    '20:00',
-    '23:00',
-    '00:00',
-    '18:00',
-    '19:00',
-    '21:30',
-    '21:00',
-    '22:00'
-]
 export const concertCities = [
     'Moscow',
     'Saint-Petersburg',
@@ -140,6 +127,7 @@ export const concertInfo:ConcertInfo[] = [
                 time:'21:00',
                 place: concertPlaces[4],
                 poster: concertImages[0],
+                date: concertDates[3]
             }
         ]
 
@@ -242,13 +230,13 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Saratov',
                 time:'18:00',
                 place: 'ONYX CLUB',
-                poster: concertImages[4],
-                date:concertDates[0],
+                poster: poster5,
+                date:concertDates[4],
             },
             {
                 city:'Engels',
                 place: concertPlaces[0],
-                poster: concertImages[4],
+                poster: poster4,
                 date:concertDates[1],
             },
         ]
