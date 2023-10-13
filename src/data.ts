@@ -253,6 +253,41 @@ export const concertInfo:ConcertInfo[] = [
             },
         ]
     },
+    {
+        id:6,
+        artist: 'ЛСП',
+        concertName:'НЕСЧАСТНЫЕ ЛЮДИ ТУР',
+        concerts: [
+            {
+                city:'Moscow',
+                time:'18:00',
+                place: concertPlaces[0],
+                poster: concertImages[5],
+                date:concertDates[2],
+            },
+            {
+                city:'Saint-Petersburg',
+                time:'19:00',
+                place: concertPlaces[1],
+                poster: concertImages[5],
+                date:concertDates[1],
+            },
+            {
+                city:'Kazan',
+                time:'18:00',
+                place: 'ONYX CLUB',
+                poster: concertImages[4],
+                date:concertDates[0],
+            },
+            {
+                city:'Irkutsk',
+                time: '19:00',
+                place: concertPlaces[0],
+                poster: concertImages[4],
+                date:concertDates[1],
+            },
+        ]
+    },
 ]
 
 console.log(concertInfo)

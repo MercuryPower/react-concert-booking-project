@@ -1,19 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import '../SCSS/styles.scss';
-import Slider from "./Slider";
-import Header from "./Header";
+import Slider from "../components/Slider";
+import Header from "../components/Header";
 import {
     concertCities, concertCitiesWithAll,
     concertDates,
     concertImages, concertInfo,
     concertNames,
-    concertPerformers, concertPerformersWithAll,
+    concertPerformers,
 } from '../data';
-import TicketList from "./TicketList";
-import DropdownMenu from "./DropdownMenu";
 import {useInView} from "react-intersection-observer";
-import Dates from "./Dates";
-import AllTicketsWithFilter from "./AllTicketsWithFilter";
+import AllTicketsWithFilter from "../components/AllTicketsWithFilter";
 
 
 const Home = () => {
@@ -37,11 +34,7 @@ const Home = () => {
         <>
             <Header isScrolled={isScrolled} cities={concertCitiesWithAll.slice(1)} />
             <Slider
-                concertDates={concertDates}
-                concertCities={concertCities}
-                concertImages={concertImages}
-                concertPerformers={concertPerformers}
-                concertNames={concertNames}
+                concertData={concertInfo}
             />
             <AllTicketsWithFilter ref={ref} />
             <footer>

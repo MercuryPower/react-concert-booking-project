@@ -40,7 +40,6 @@
                     whileInView={'visible'}
                     ref={ref}
                     className={'tickets-buy-block'}
-
                 >
                     <div className={'ticket-info-column first'}>
                         <div className={'currentYear-tickets-block'}>

@@ -23,6 +23,7 @@ const CurrentCity = ({cities, onSearchQueryChange} : CurrentCityProps) => {
     // const sortedCities = [...cities].sort((a,b) => a[sort].localeCompare(b[sort]))
     const handleChooseCity = () => {
         setShow(true);
+        dispatch({ type: 'SET_SELECTED_CITY', payload: selectedCity });
     }
     const handleClose = () => {
         setShow(false)
