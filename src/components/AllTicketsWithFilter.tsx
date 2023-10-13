@@ -1,12 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import DropdownMenu from "./DropdownMenu";
 import {concertCitiesWithAll, concertInfo, concertPerformersWithAll} from "../data";
 import Dates from "./Dates";
 import TicketList from "./TicketList";
+import {useSelector} from "react-redux";
+import {RootState} from "../store/reducers";
 
 const AllTicketsWithFilter = React.forwardRef<HTMLElement>((props, ref) => {
     const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
     const [selectedCity,setSelectedCity] = useState<string | null>(null);
+    const cityFromHeader = useSelector((state: RootState) => state.city.selectedCity);
+    useEffect(()=> {
+        setSelectedCity(cityFromHeader)
+    }, [cityFromHeader])
     return (
         <section ref={ref} className={'tickets-place-block'}>
             <DropdownMenu
@@ -16,6 +22,7 @@ const AllTicketsWithFilter = React.forwardRef<HTMLElement>((props, ref) => {
             <DropdownMenu
                 onSelect={(city) => setSelectedCity(city)}
                 isCloseable={true}
+                isCityList={true}
                 isAnotherVersion={true}
                 width={'70vh'}
                 fontSize={'5vh'}
