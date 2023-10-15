@@ -3,7 +3,7 @@ import poster2 from "./assets/posters/poster22.jpg";
 import poster3 from "./assets/posters/poster3.jpg";
 import poster4 from "./assets/posters/poster4.jpg";
 import poster5 from "./assets/posters/poster5.png";
-
+import poster6 from "./assets/posters/poster6.jpg";
 
 export const concertPlaces = [
     'BASE CLUB',
@@ -20,6 +20,7 @@ export const concertImages = [
     poster3,
     poster4,
     poster5,
+    poster6,
 ];
 export const concertPerformers = [
     'Kai Angel & 9mice',
@@ -87,6 +88,7 @@ export interface ConcertInfo {
     id: number;
     artist: string;
     concertName?: string;
+    collaborators?:string[];
     concerts:{
         city: string;
         time?: string;
@@ -128,13 +130,57 @@ export const concertInfo:ConcertInfo[] = [
                 place: concertPlaces[4],
                 poster: concertImages[0],
                 date: concertDates[3]
-            }
+            },
+            {
+                city: 'Tver',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: '05.09'
+            },
+            {
+                city: 'Novgorod',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: '10.09'
+            },
+            {
+                city: 'Irkutsk',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: '14.09'
+            },
+            {
+                city: 'Vladivostok',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: '19.09'
+            },
+            {
+                city: 'Krasnodar',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: '23.09'
+            },
+            {
+                city: 'Volgograd',
+                time:'21:00',
+                place: concertPlaces[4],
+                poster: concertImages[0],
+                date: '26.09'
+            },
+
         ]
 
     },
     {
         id:2,
         artist: 'ALBLAK 52',
+        collaborators: ['Hugo Loud','FRIENDLY THUG 52 NGG'],
         concertName: concertNames[1],
         concerts: [
             {
@@ -156,6 +202,7 @@ export const concertInfo:ConcertInfo[] = [
                 time:'22:00',
                 place: concertPlaces[2],
                 poster: concertImages[1],
+                date: concertDates[2]
             }
         ]
     },
@@ -250,7 +297,7 @@ export const concertInfo:ConcertInfo[] = [
                 city:'Moscow',
                 time:'18:00',
                 place: concertPlaces[0],
-                poster: concertImages[5],
+                poster: poster6,
                 date:concertDates[2],
             },
             {
