@@ -2,7 +2,7 @@
     import ModalWindow from "./ModalWindow";
     import {motion} from "framer-motion";
     import Schema from "./Schema";
-    import {concertDates, ConcertInfo} from "../data";
+    import {ConcertInfo} from "../data";
 
     const Ticket = forwardRef<HTMLDivElement,{ concertData: ConcertInfo }>(({ concertData }, ref) => {
         const [showArray, setShowArray] = useState(new Array(concertData.concerts.length).fill(false));

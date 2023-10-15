@@ -25,7 +25,7 @@
     flex-grow: 2;
     width: 100%;
     h4{
-        @include font(700, 1.125rem, #000);
+        @include font(700, 1.125rem, $secondary-color);
         margin-left:0.25rem;
     }
     svg{
@@ -72,7 +72,6 @@
     height: 110vh;
     position: relative;
     z-index: 5;
-
 }
 
 @keyframes fadeIn {
@@ -97,7 +96,7 @@
     }
 }
 .slider-arrow-prev *, .slider-arrow-next *{
-    fill: #FFF;
+    fill: $primary-color;
 }
 .slider-arrow-next{
     position: absolute;
@@ -123,20 +122,24 @@ header {
     transition: ease-out 200ms;
 }
 .header-scrolled{
-    background-color: #fff;
+    background-color: $primary-color;
 }
 .section-container{
     height: 100vh;
     @include flex(center,center)
 }
 .concert-performer-block{
-    @include font(900, 8vmin);
     text-shadow:
-            0 0 1px #000,
+            0 0 1px $secondary-color,
             0 0 5px rgba(255, 255, 255, 0.25),
             0 0 10px rgba(255, 255, 255, 0.25),
             0 0 15px rgba(255, 255, 255, 0.25),
             0 0 20px rgba(255, 255, 255, 0.25);
+
+    h1{
+        @include font(800, 12vmin, $primary-color);
+
+    }
 }
 .concert-performer{
     text-align: center;
@@ -148,7 +151,7 @@ header {
     top: 10%;
     margin:0;
     left: 0;
-    color: #fff;
+    color: $primary-color;
     z-index: 1;
     overflow: hidden;
 }
@@ -160,35 +163,40 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    color: #fff;
+    color: $primary-color;
     z-index: 1;
 }
 .concert-name-block{
-    @include font(700, 9vmin, #fff);
     text-shadow:
-            0 0 1px #000,
+            0 0 1px $secondary-color,
             0 0 5px rgba(255, 255, 255, 0.1),
             0 0 10px rgba(255, 255, 255, 0.1),
             0 0 15px rgba(255, 255, 255, 0.1),
             0 0 20px rgba(255, 255, 255, 0.1);
+    h1{
+        @include font(900, 14vmin, $primary-color);
+        width: 75%;
+    }
     }
 .concert-double-name{
     opacity: 0.3;
     margin-top: -2vh;
     filter: blur(1px);
-    //animation: bgBlur ease-out 400ms infinite;
+    animation: bgBlur ease-out 400ms infinite alternate;
+    @include font(800, 8vmin, $primary-color);
 }
-//@keyframes bgBlur {
-//    0% {
-//        filter: blur(1px);
-//        transform: rotateY(5deg);
-//    }
-//    50%{
-//    }
-//    100%{
-//        filter:blur(1px);
-//    }
-//}
+@keyframes bgBlur {
+    0% {
+        filter: blur(1px);
+        transform: rotateY(5deg);
+    }
+    50%{
+        filter: blur(2px);
+    }
+    100%{
+        filter:blur(1px);
+    }
+}
 .concert-double-name2{
     opacity: 0.3;
     margin-left: -1vh;
@@ -201,10 +209,10 @@ header {
 .date-circle {
     width: 7vh;
     height: 7vh;
-    background-color: #000;
+    background-color: $secondary-color;
     border-radius: 50%;
     @include flex(center,center);
-    color: #fff;
+    color: $primary-color;
     font-size: 2vh;
 }
 .currentYear-tickets-block{
@@ -235,8 +243,8 @@ header {
     overflow: hidden;
 }
 .concertTime-tickets-block{
-    @include font(800, 3vh, #fff);
-    background-color: #000;
+    @include font(800, 3vh, $primary-color);
+    background-color: $secondary-color;
 }
 .concertDate-tickets-block{
     @include font(800, 2vh);
@@ -248,63 +256,99 @@ header {
     @include font(600, 2vh);
     width: 9vh;
     height: 9vh;
-    border: 1px solid #000;
+    border: 1px solid $secondary-color;
     cursor: pointer;
     border-radius: 50%;
     background: transparent;
 
     &:hover{
-        color:#fff;
-        background-color: #000;
+        color:$primary-color;
+        background-color: $secondary-color;
         transition: color ease-out 600ms;
-        animation: textShadowAnimation 4s infinite;
+        animation: textShadowAnimation 4s infinite alternate;
     }
     &:not(:hover){
         transition: color ease-out 600ms;
     }
 }
-.city-info{
+.city-info {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     text-align: center;
-    width: 100%;
     position: absolute;
-    bottom:32%;
+    bottom: 29%;
     right: 0;
     left: 0;
+    opacity: 0.7;
     z-index: 1;
-
+    padding: 1rem;
     h2 {
-        @include font(300, 4vh, #fff);
-        margin:0;
-        text-shadow:
-                0 0 1px #000,
-                0 0 5px rgba(255, 255, 255, 0.1),
-                0 0 10px rgba(255, 255, 255, 0.1),
-                0 0 15px rgba(255, 255, 255, 0.1),
-                0 0 20px rgba(255, 255, 255, 0.1);
+        padding: 0.2rem;
+        @include font(700, 3vh, $primary-color);
+        margin: 0;
+        text-shadow: 0 0 1px $secondary-color,
+        0 0 5px rgba(255, 255, 255, 0.1),
+        0 0 10px rgba(255, 255, 255, 0.1),
+        0 0 15px rgba(255, 255, 255, 0.1),
+        0 0 20px rgba(255, 255, 255, 0.1);
     }
 }
-
 .date-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     text-align: center;
-    width: 100%;
     position: absolute;
     margin-top:10px;
-    bottom:27.5%;
+    bottom:22.5%;
     right: 0;
     left: 0;
+    padding: 1rem;
     z-index: 1;
+    opacity: 0.5;
+    background-color: $secondary-color;
+    overflow: hidden;
     h3 {
+        padding: 0.2rem;
         margin:0;
-        @include font(700,3vh, #fff);
+        @include font(300,2vh, $primary-color);
         text-shadow:
-                0 0 1px #000,
+                0 0 1px $secondary-color,
                 0 0 5px rgba(255, 255, 255, 0.1),
                 0 0 10px rgba(255, 255, 255, 0.1),
                 0 0 15px rgba(255, 255, 255, 0.1),
                 0 0 20px rgba(255, 255, 255, 0.1);
+
+    }
+    .h3-dates-slider{
+        &:hover{
+            color:$secondary-color;
+            background-color: $primary-color;
+            transition: 400ms ease-out;
+        }
+        &:not(:hover){
+            transition: 400ms ease-out;
+        }
     }
 }
+.dates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
 
+    width: 100%;
+}
+@keyframes dates-Animation {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
 .buy-ticket-slider-block{
     text-align: center;
     width: 100%;
@@ -319,16 +363,16 @@ header {
     width: 40vh;
     height: 5rem;
     cursor: pointer;
-    @include font(700, 2rem, #fff);
-    background: #000;
+    @include font(800, 3vh, $primary-color);
+    background: $secondary-color;
     border: none;
     z-index: 2;
-    text-shadow: -1px -1px 0 #000,
-    -2px -2px 1px #000;
-    animation: textShadowAnimation 4s infinite;
+    text-shadow: -1px -1px 0 $secondary-color,
+    -2px -2px 1px $secondary-color;
+    animation: textShadowAnimation 4s infinite alternate;
     &:hover{
-        background: #fff;
-        color:#000;
+        background: $primary-color;
+        color:$secondary-color;
         transition: color ease-out 600ms;
         animation: 0;
     }
@@ -360,19 +404,19 @@ header {
 .tickets-title-block{
     margin-top:4.75rem;
     h2{
-        @include font(900, 4rem, #000);
+        @include font(900, 4rem, $secondary-color);
         margin:0;
     }
 }
 .switched{
-    animation: fadeIn 2s ease-out;
+    animation: fadeIn 2s ease-out alternate;
 }
 .tickets-buy-block{
     @include flex(space-between,center);
     padding:0.5rem;
     border-radius: $border-radius;
-    border: 1px solid #000;
-    background: #FFF;
+    border: 1px solid $secondary-color;
+    background: $primary-color;
     height: 15vh;
     width: 65vh;
     text-align: center;
@@ -419,7 +463,7 @@ header {
     position: relative;
     z-index: 3;
     h1{
-        @include font(700, null, #000,  #fff);
+        @include font(700, null, $secondary-color,  $primary-color);
         margin:0;
         cursor: pointer;
         text-overflow: ellipsis;
@@ -427,22 +471,23 @@ header {
         text-align: left;
     }
     &:hover {
-        color: #fff;
-        background-color: #000;
+        color: $primary-color;
+        background-color: $secondary-color;
         transition: color ease-out 600ms;
         h1 {
-            color: #fff;
+            color: $primary-color;
             transition: color ease-out 600ms;
         }
         .selected {
-            color: #000;
-            background-color: #fff;
+            color: $secondary-color;
+            background-color: $primary-color;
             transition: color ease-out 600ms;
         }
     }
 }
 .rotate-arrow-dropdown-inactive{
     transform: rotate(180deg);
+
 }
 .dropdown-menu-items{
     @include flex(center,null);
@@ -460,16 +505,16 @@ header {
         }
     }
     li:hover{
-        color:#000;
-        background-color: #fff;
+        color:$secondary-color;
+        background-color: $primary-color;
     }
 
     li.selected{
-        color:#fff;
-        background-color: #000;
+        color:$primary-color;
+        background-color: $secondary-color;
         &:hover{
-            color:#000;
-            background-color: #fff;
+            color:$secondary-color;
+            background-color: $primary-color;
         }
     }
 }
@@ -484,15 +529,15 @@ header {
     @include font(700,4vh);
     padding-top: 1rem;
     flex-direction: column;
-    background-color: #000;
-    color:#fff;
+    background-color: $secondary-color;
+    color:$primary-color;
     max-height: 500px;
     ul{
         padding-left:2vh;
     }
     li.selected{
-        color:#000;
-        background-color: #fff;
+        color:$secondary-color;
+        background-color: $primary-color;
     }
     overflow-y: auto;
 }
@@ -529,7 +574,7 @@ header {
 
 .modal-window-content{
     @include flex(center,center,column);
-    background-color: #fff;
+    background-color: $primary-color;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     gap:0.5rem;
     border-radius: 1.5625rem;
@@ -558,8 +603,8 @@ header {
         padding: 1rem;
         text-align: center;
         &:hover{
-            color:#fff;
-            background-color: #000;
+            color:$primary-color;
+            background-color: $secondary-color;
         }
     }
 
@@ -579,6 +624,7 @@ header {
     padding: 1vh;
     @include font(400, 3vh);
     flex: 2;
+    opacity: 0.7;
 }
 .input-city-search{
     @include flex(center,center);
@@ -587,7 +633,7 @@ header {
     }
 }
 .scrolled{
-    background-color:#fff;
+    background-color:$primary-color;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     transition: ease-out 200ms;
 }
@@ -622,11 +668,35 @@ header {
     align-items: center;
     cursor: pointer;
     padding: 1rem;
-    background-color: #000;
-    color: #fff;
-    &:hover{
-        background-color: #fff;
-        color: #000;
-        transition: color ease-out 600ms;
+    background-color: $secondary-color;
+    color: $primary-color;
+}
+.skeleton{
+    opacity: 0.75;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+.skeleton-text{
+    width: 100%;
+    height: .5rem;
+    margin-bottom: .25rem;
+}
+.skeleton-text:last-child{
+    margin-bottom: 0;
+    width: 80%;
+}
+@keyframes skeleton-loading {
+    0%{
+        background-color: hsl(200, 20%, 70%);
+    }
+    100%{
+        background-color: hsl(200, 20%, 95%);
     }
 }
+.choose-date{
+    h1{
+        margin:0;
+        @include font(700, 8vh, $primary-color);
+    }
+    background-color:$secondary-color;
+}
+

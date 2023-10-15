@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import '../SCSS/styles.scss';
-import Slider from "../components/Slider";
+import Slider from "../components/Slider/Slider";
 import Header from "../components/Header";
 import {
-    concertCities, concertCitiesWithAll,
-    concertDates,
-    concertImages, concertInfo,
-    concertNames,
-    concertPerformers,
+    concertCitiesWithAll, concertInfo,
 } from '../data';
 import {useInView} from "react-intersection-observer";
 import AllTicketsWithFilter from "../components/AllTicketsWithFilter";
